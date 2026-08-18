@@ -1,0 +1,64 @@
+# Hydrogel Based Smart Irrigation System
+# Combined Dependencies (Backend + Frontend)
+
+# BACKEND DEPENDENCIES (Python)
+
+# Web Framework & Server
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.7
+
+# Database & ORM
+sqlalchemy==2.0.29
+alembic==1.13.1
+psycopg2-binary==2.9.9
+
+# Data Validation & Serialization
+pydantic[email]==2.6.4
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+bcrypt==4.1.2
+PyJWT==2.8.0
+
+# Environment & Configuration
+python-dotenv==1.0.1
+
+# HTTP Client
+requests==2.32.3
+
+# Development & Testing (optional, can be removed in production)
+pytest==7.4.4
+pytest-asyncio==0.23.3
+black==24.1.1
+pylint==3.0.3
+
+# ============================================
+# FRONTEND DEPENDENCIES (Node.js)
+# ============================================
+# Note: Frontend dependencies are managed in frontend/package.json
+# Install them using: cd frontend && npm install
+#
+# Key Frontend Libraries:
+# - next@14.2.3 (React framework)
+# - react@18.3.0 (UI library)
+# - tailwindcss@3.4.3 (CSS framework)
+# - typescript@5.4.5 (Type checking)
+# - axios@1.7.1 (HTTP client)
+# - recharts@2.12.7 (Charts)
+# - react-leaflet@4.2.1 (Maps)
+# - zustand@4.5.2 (State management)
+# - framer-motion@11.1.7 (Animations)
+# - @tanstack/react-query@5.35.1 (Data fetching)
+
+# ============================================
+# INSTALLATION INSTRUCTIONS
+# ============================================
+# Backend:
+#   pip install -r requirements.txt
+#
+# Frontend:
+#   cd frontend && npm install
+#
+# Docker:
+#   docker-compose up -d

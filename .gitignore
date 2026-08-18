@@ -1,0 +1,128 @@
+# ============================================
+# Python Backend
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env
+.env.local
+.env.*.local
+
+# Testing & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.hypothesis/
+
+# Linting
+.pylint.d/
+.ruff_cache/
+
+# ============================================
+# Node.js / Frontend
+# ============================================
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Next.js
+.next/
+out/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+
+# ============================================
+# IDE & Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# ============================================
+# Database & Logs
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.logs
+logs/
+
+# ============================================
+# Docker
+# ============================================
+.dockerignore
+docker-compose.override.yml
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# ============================================
+# Security & Sensitive Data
+# ============================================
+.env
+.env.local
+.env.*.local
+secrets/
+*.key
+*.pem
+*.cert
+
+# ============================================
+# Package Lock Files (Optional - comment out if you want to commit)
+# ============================================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
