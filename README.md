@@ -269,35 +269,6 @@ where `22 L/m²` represents the baseline used by the model for comparison.
 
 ---
 
-## Deployment
-
-### Frontend – Vercel
-
-1. Connect the GitHub repository to Vercel.
-2. Set the root directory to `frontend`.
-3. Configure:
-
-```env
-NEXT_PUBLIC_API_URL=https://<your-backend-url>
-```
-
-4. Deploy the application.
-
-### Backend – Railway
-
-1. Create a Railway project.
-2. Add a PostgreSQL database.
-3. Add the FastAPI backend service.
-4. Configure the required environment variables.
-5. Deploy the backend.
-6. Use the generated backend URL for the frontend configuration.
-
-### Alternative – Render
-
-The backend can also be deployed as a Docker-based web service with PostgreSQL as the database.
-
----
-
 ## SDG Alignment
 
 IrrigateWise contributes to the following **United Nations Sustainable Development Goals**:
