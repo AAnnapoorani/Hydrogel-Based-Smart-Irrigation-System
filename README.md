@@ -1,183 +1,383 @@
-# IrrigateWise – Smart Irrigation Platform
+IrrigateWise – Smart Irrigation Platform
 
-📍 Built for Erumaiyur Village, Tambaram, Tamil Nadu  
+📍 Built for Erumaiyur Village, Tambaram, Tamil Nadu
 🌾 Soil Analysis · Crop Recommendation · Water Optimization
 
----
+Overview
 
-## Folder Structure
+IrrigateWise is a smart irrigation platform designed to support data-driven agricultural decisions through soil analysis, crop recommendations, and optimized irrigation planning.
 
-```
+The platform combines a Next.js frontend, FastAPI backend, and PostgreSQL database, with intelligent logic for soil fertility scoring and irrigation requirement estimation.
+
+Folder Structure
+
 irrigatewise/
 ├── docker-compose.yml
 ├── seed.sql
+├── .gitignore
 ├── backend/
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   ├── .env
-│   ├── main.py          ← FastAPI app + all routes
-│   ├── models.py        ← SQLAlchemy ORM models
-│   ├── schemas.py       ← Pydantic request/response models
-│   ├── logic.py         ← Soil scoring + irrigation formula
-│   └── database.py      ← DB connection & session
+│   ├── .env.example
+│   ├── main.py
+│   ├── models.py
+│   ├── schemas.py
+│   ├── logic.py
+│   └── database.py
 └── frontend/
     ├── Dockerfile
     ├── package.json
     ├── tailwind.config.js
     ├── next.config.js
+    ├── .env.example
     └── src/
         ├── app/
         │   ├── layout.tsx
-        │   ├── page.tsx             ← Landing page
-        │   ├── dashboard/page.tsx   ← Dashboard
-        │   ├── soil/page.tsx        ← Soil Analysis
-        │   ├── irrigation/page.tsx  ← Irrigation Optimizer
-        │   └── reports/page.tsx     ← Reports
+        │   ├── page.tsx
+        │   ├── dashboard/
+        │   │   └── page.tsx
+        │   ├── soil/
+        │   │   └── page.tsx
+        │   ├── irrigation/
+        │   │   └── page.tsx
+        │   └── reports/
+        │       └── page.tsx
         ├── components/
         │   ├── Navbar.tsx
         │   ├── StatCard.tsx
         │   └── WeatherWidget.tsx
         └── lib/
-            └── api.ts               ← Axios client
-```
+            └── api.ts
 
----
+Environment Variables
 
-## Environment Variables
+Backend
 
-### backend/.env
-```env
-DATABASE_URL=postgresql://irrigate_user:irrigate_pass@db:5432/irrigatewise
-SECRET_KEY=your-super-secret-key-change-this
+Create backend/.env locally using the following template:
+
+DATABASE_URL=<your-postgresql-connection-string>
+SECRET_KEY=<your-secret-key>
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_DAYS=30
-```
 
-### frontend/.env.local
-```env
+Frontend
+
+Create frontend/.env.local:
+
 NEXT_PUBLIC_API_URL=http://localhost:8000
-```
 
----
+Security: Never commit .env or .env.local files containing real credentials, passwords, API keys, tokens, or secret keys. Use .env.example files for documentation.
 
-## Local Development
+Local Development
 
-### Prerequisites
-- Docker + Docker Compose  
-- Node.js 20+  
-- Python 3.12+
+Prerequisites
 
-### Option 1: Docker (Recommended)
+Docker + Docker Compose
 
-```bash
-# Clone and start everything
-git clone https://github.com/your-org/irrigatewise
+Node.js 20+
+
+Python 3.12+
+
+PostgreSQL 16+ (if running without Docker)
+
+Option 1: Docker
+
+git clone <your-repository-url>
 cd irrigatewise
+
 docker-compose up --build
 
-# Seed sample data (after containers start)
-docker exec -it irrigatewise-db-1 psql -U irrigate_user -d irrigatewise -f /seed.sql
-```
+After the containers are running, seed the database with the provided sample data:
 
-Open: http://localhost:3000
+docker exec -it <database-container-name> \
+psql -U <database-user> -d <database-name> -f /seed.sql
 
-### Option 2: Manual
+Open the application:
 
-**Backend:**
-```bash
-cd C:\Users\ANNAPOORANI\Downloads\irrigatewise-fullstack 1\irrigatewise\backend
-python -m venv venv && source venv/bin/activate
+http://localhost:3000
+
+Backend API documentation:
+
+http://localhost:8000/docs
+
+Option 2: Manual Setup
+
+Backend
+
+cd backend
+
+python -m venv venv
+
+Activate the virtual environment.
+
+Windows:
+
+venv\Scripts\activate
+
+Linux/macOS:
+
+source venv/bin/activate
+
+Install dependencies:
+
 pip install -r requirements.txt
 
-# Start PostgreSQL separately, then:
-uvicorn main:app --reload --port 8000
-```
+Configure the required environment variables and start the backend:
 
-**Frontend:**
-```bash
-cd C:\Users\ANNAPOORANI\Downloads\irrigatewise-fullstack 1\irrigatewise\frontend
+uvicorn main:app --reload --port 8000
+
+Frontend
+
+cd frontend
+
 npm install
 npm install leaflet react-leaflet
-npm run dev          # http://localhost:3000
-```
 
----
+npm run dev
 
-## API Reference
+Frontend:
 
-| Method | Endpoint               | Auth | Description                |
-|--------|------------------------|------|----------------------------|
-| POST   | /register              | No   | Register new user          |
-| POST   | /login                 | No   | Login, returns JWT         |
-| POST   | /soil/analyze          | Yes  | Analyze soil parameters    |
-| GET    | /soil/history          | Yes  | Get soil analysis history  |
-| POST   | /irrigation/calculate  | Yes  | Calculate irrigation needs |
-| POST   | /irrigation/schedule   | Yes  | Schedule irrigation        |
-| GET    | /irrigation/history    | Yes  | Get irrigation history     |
-| GET    | /reports               | Yes  | Combined reports data      |
-| GET    | /reports/export        | Yes  | Export PDF (download URL)  |
-| GET    | /health                | No   | Health check               |
+http://localhost:3000
 
-Interactive docs: http://localhost:8000/docs
+API Reference
 
----
+Method
 
-## Production Deployment
+Endpoint
 
-### Vercel (Frontend) + Railway (Backend + DB)
+Auth
 
-**Backend on Railway:**
-1. Create new Railway project → Add PostgreSQL service
-2. Add Python service → connect GitHub repo (backend/ folder)
-3. Set env vars: DATABASE_URL (from Railway PostgreSQL), SECRET_KEY
-4. Deploy → copy the Railway public URL
+Description
 
-**Frontend on Vercel:**
-1. Connect GitHub repo to Vercel → set Root Directory: `frontend`
-2. Add env var: `NEXT_PUBLIC_API_URL=https://your-railway-app.railway.app`
-3. Deploy
+POST
 
-### Alternative: Render
-- Backend: New Web Service → Docker → Root: `/backend`
-- Database: New PostgreSQL → copy Internal URL → set as DATABASE_URL
-- Frontend: New Static Site → build command: `npm run build`, publish: `.next`
+/register
 
----
+No
 
-## Key Formulas
+Register a new user
 
-### Soil Fertility Score
-```
-score = N_score×0.30 + P_score×0.20 + K_score×0.20 + pH_score×0.15 + OC_score×0.15
-Classification: ≥70 → High | 45–69 → Medium | <45 → Low
-```
+POST
 
-### Irrigation Requirement
-```
+/login
+
+No
+
+Authenticate user and return JWT
+
+POST
+
+/soil/analyze
+
+Yes
+
+Analyze soil parameters
+
+GET
+
+/soil/history
+
+Yes
+
+Retrieve soil analysis history
+
+POST
+
+/irrigation/calculate
+
+Yes
+
+Calculate irrigation requirement
+
+POST
+
+/irrigation/schedule
+
+Yes
+
+Schedule irrigation
+
+GET
+
+/irrigation/history
+
+Yes
+
+Retrieve irrigation history
+
+GET
+
+/reports
+
+Yes
+
+Retrieve combined report data
+
+GET
+
+/reports/export
+
+Yes
+
+Generate/export report
+
+GET
+
+/health
+
+No
+
+Check API health
+
+Interactive API documentation:
+
+http://localhost:8000/docs
+
+Core Logic
+
+Soil Fertility Score
+
+The soil fertility score combines normalized nutrient and soil-property scores:
+
+Score =
+    N_score  × 0.30
+  + P_score  × 0.20
+  + K_score  × 0.20
+  + pH_score × 0.15
+  + OC_score × 0.15
+
+Classification:
+
+Score ≥ 70        → High
+45 ≤ Score < 70  → Medium
+Score < 45       → Low
+
+Irrigation Requirement
+
+Soil moisture deficit:
+
 SMD = SM_optimal − SM_current
-IR  = α × SMD          (α = soil coefficient; loam=0.85, clay=1.1, sandy=0.65)
-Water Saved % = (1 − IR/22) × 100   (22 L/m² = traditional baseline)
-```
 
----
+Irrigation requirement:
 
-## Tech Stack
+IR = α × SMD
 
-| Layer     | Technology                           |
-|-----------|--------------------------------------|
-| Frontend  | Next.js 14, TypeScript, Tailwind CSS |
-| UI        | ShadCN, Framer Motion, Recharts      |
-| State     | Zustand + React Query (TanStack)     |
-| Backend   | FastAPI (Python 3.12)                |
-| Database  | PostgreSQL 16 + SQLAlchemy ORM       |
-| Auth      | JWT (PyJWT + bcrypt)                 |
-| Deploy    | Docker, Vercel, Railway/Render       |
+where α represents the soil-specific coefficient.
 
----
+Example coefficients:
 
-## SDG Alignment
-- **SDG 2** Zero Hunger – Improved crop yield guidance
-- **SDG 6** Clean Water – 25–35% water savings
-- **SDG 12** Responsible Consumption – Precision resource use
-- **SDG 13** Climate Action – Lower agricultural water footprint
-- **SDG 15** Life on Land – Soil health monitoring
+Loam  → 0.85
+Clay  → 1.10
+Sandy → 0.65
+
+Estimated water savings:
+
+Water Saved % = (1 − IR / 22) × 100
+
+where 22 L/m² represents the baseline used by the model for comparison.
+
+These formulas represent the project's implemented decision-support logic and should be calibrated against local agronomic measurements before being used for real-world irrigation decisions.
+
+Technology Stack
+
+Layer
+
+Technology
+
+Frontend
+
+Next.js 14, TypeScript, Tailwind CSS
+
+UI
+
+ShadCN, Framer Motion, Recharts
+
+State Management
+
+Zustand, TanStack React Query
+
+Backend
+
+FastAPI, Python 3.12
+
+Database
+
+PostgreSQL 16, SQLAlchemy ORM
+
+Authentication
+
+JWT, PyJWT, bcrypt
+
+Containerization
+
+Docker, Docker Compose
+
+Deployment
+
+Vercel, Railway / Render
+
+Deployment
+
+Frontend – Vercel
+
+Connect the GitHub repository to Vercel.
+
+Set the root directory to frontend.
+
+Configure:
+
+NEXT_PUBLIC_API_URL=https://<your-backend-url>
+
+Deploy the application.
+
+Backend – Railway
+
+Create a Railway project.
+
+Add a PostgreSQL database.
+
+Add the FastAPI backend service.
+
+Configure the required environment variables.
+
+Deploy the backend.
+
+Use the generated backend URL for the frontend configuration.
+
+Alternative – Render
+
+The backend can also be deployed as a Docker-based web service with PostgreSQL as the database.
+
+SDG Alignment
+
+IrrigateWise contributes to the following United Nations Sustainable Development Goals:
+
+SDG 2 – Zero Hunger: Supports improved agricultural decision-making and crop guidance.
+
+SDG 6 – Clean Water and Sanitation: Promotes efficient irrigation and reduced water usage.
+
+SDG 12 – Responsible Consumption and Production: Encourages precision-based resource utilization.
+
+SDG 13 – Climate Action: Supports reduced agricultural water footprint.
+
+SDG 15 – Life on Land: Encourages soil health monitoring and sustainable land management.
+
+Data & Security
+
+Database credentials are stored through environment variables.
+
+Secret keys are not included in the repository.
+
+.env and .env.local files should remain excluded through .gitignore.
+
+Sample/seed data should contain only synthetic or non-sensitive information.
+
+Authentication uses JWT-based access control.
+
+Production deployments should use HTTPS and securely managed environment variables.
+
+Project Purpose
+
+IrrigateWise aims to demonstrate how soil data, computational decision-making, and modern web technologies can be combined to build a practical smart irrigation platform for sustainable agriculture.
+
+The platform is intended as a decision-support and academic/project prototype and should be validated with agricultural experts and field measurements before deployment in production farming environments.
