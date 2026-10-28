@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "IrrigateWise – Smart Irrigation Platform",
   description: "AI-powered soil analysis, crop recommendation & water optimization for Tamil Nadu farmers.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -20,10 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className={inter.className} style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      <body className={`${inter.className} min-h-screen bg-slate-50 text-slate-900 antialiased`}>
         <Providers>
           <Navbar />
-          <div className="min-h-screen bg-[#f8faf5]">{children}</div>
+          <div className="min-h-[calc(100vh-3.5rem)]">{children}</div>
         </Providers>
       </body>
     </html>

@@ -1,32 +1,39 @@
-version: "3.9"
+version: '3.8'
 
 services:
+  # ── Relational Database (PostgreSQL 16) ───────────────────────────
   db:
     image: postgres:16-alpine
-    restart: always
+    container_name: irrigatewise-postgres
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: irrigate_user
-      POSTGRES_PASSWORD: Admin@123
-      POSTGRES_DB: irrigatewise
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+      POSTGRES_USER: ${POSTGRES_USER:-irrigate_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-irrigate_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-irrigatewise}
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./seed.sql:/docker-entrypoint-initdb.d/01_seed.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U irrigate_user -d irrigatewise"]
       interval: 5s
       timeout: 5s
       retries: 5
 
+  # ── Python / FastAPI / Machine Learning Backend ───────────────────
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    restart: always
-    env_file:
-      - ./backend/.env
+    container_name: irrigatewise-backend
+    restart: unless-stopped
     environment:
-      DATABASE_URL: postgresql://irrigate_user:irrigate_pass@db:5432/irrigatewise
+      DATABASE_URL: postgresql://${POSTGRES_USER:-irrigate_user}:${POSTGRES_PASSWORD:-irrigate_pass}@db:5432/${POSTGRES_DB:-irrigatewise}
+      SECRET_KEY: ${SECRET_KEY:-irrigatewise_production_super_secret_jwt_key_2025}
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      CORS_ORIGINS: http://localhost:3000,http://frontend:3000,http://127.0.0.1:3000
     ports:
       - "8000:8000"
     depends_on:
@@ -35,19 +42,20 @@ services:
     volumes:
       - ./backend:/app
 
+  # ── Next.js 14 App Router Frontend ────────────────────────────────
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    restart: always
-    env_file:
-      - ./frontend/.env.local
+    container_name: irrigatewise-frontend
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
     ports:
       - "3000:3000"
     depends_on:
       - backend
-    environment:
-      NEXT_PUBLIC_API_URL: http://backend:8000
 
 volumes:
-  pgdata:
+  postgres_data:
+    driver: local

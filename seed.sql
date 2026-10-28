@@ -1,11 +1,3 @@
--- IrrigateWise Sample Seed Data
--- Run: psql -U irrigate_user -d irrigatewise -f seed.sql
-
--- INSERT INTO users (name, email, password) VALUES
---  ('Rajan Kumar',   'rajan@erumaiyur.in',  '$2b$12$PLACEHOLDER_HASH_CHANGE_IN_PROD'),
---  ('Meena Devi',    'meena@erumaiyur.in',  '$2b$12$PLACEHOLDER_HASH_CHANGE_IN_PROD'),
---  ('Selvam Pillai', 'selvam@erumaiyur.in', '$2b$12$PLACEHOLDER_HASH_CHANGE_IN_PROD');
-
 -- Soil data records (realistic Tamil Nadu clay-loam values)
 INSERT INTO soil_data (user_id, nitrogen, phosphorus, potassium, ph, organic_carbon, fertility_score, classification, created_at) VALUES
   (1, 92.0, 48.0, 220.0, 6.8, 0.85, 78.2, 'High',   NOW() - INTERVAL '0 days'),

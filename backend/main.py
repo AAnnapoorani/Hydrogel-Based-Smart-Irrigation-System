@@ -1,73 +1,50 @@
-from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+# pyrefly: ignore [missing-import]
+from fastapi import FastAPI, Depends, HTTPException, WebSocket, WebSocketDisconnect
+# pyrefly: ignore [missing-import]
+from fastapi.middleware.cors import CORSMiddleware  
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta, timezone
 from typing import Optional, List
-import jwt
-import bcrypt
 
 from database import get_db, engine
 import models, schemas
 from logic import SoilAnalyzer, IrrigationCalculator
+from routers import sensors, ml, irrigation, reports, weather, terrace
+from services.websocket_manager import ws_manager
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="IrrigateWise API", version="1.0.0")
+app = FastAPI( title="IrrigateWise API", version="2.0.0", description="ML-Driven Predictive Irrigation & Agricultural Intelligence System")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://your-frontend.vercel.app"],
+    allow_origins=["http://localhost:3000", "https://your-frontend.vercel.app", "*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-security = HTTPBearer()
-SECRET_KEY = "irrigatewise-secret-key-change-in-prod"
-ALGORITHM = "HS256"
+# Mount v1 API routers
+app.include_router(sensors.router, prefix="/api/v1")
+app.include_router(ml.router, prefix="/api/v1")
+app.include_router(irrigation.router, prefix="/api/v1")
+app.include_router(reports.router, prefix="/api/v1")
+app.include_router(weather.router, prefix="/api/v1")
+app.include_router(terrace.router, prefix="/api/v1")
 
-
-def create_token(user_id: int) -> str:
-    payload = {"sub": str(user_id), "exp": datetime.utcnow() + timedelta(days=30)}
-    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
-
-
-def get_current_user(
-    credentials: HTTPAuthorizationCredentials = Depends(security),
-    db: Session = Depends(get_db),
-):
+# WebSocket Real-Time Telemetry Stream
+@app.websocket("/api/v1/ws/telemetry")
+async def websocket_telemetry_endpoint(websocket: WebSocket):
+    await ws_manager.connect(websocket)
     try:
-        payload = jwt.decode(credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
-        user = db.query(models.User).filter(models.User.id == int(payload["sub"])).first()
-        if not user:
-            raise HTTPException(status_code=401, detail="User not found")
-        return user
-    except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token expired")
+        while True:
+            data = await websocket.receive_text()
+            if data == "ping":
+                await websocket.send_text('{"event":"PONG"}')
+    except WebSocketDisconnect:
+        ws_manager.disconnect(websocket)
     except Exception:
-        raise HTTPException(status_code=401, detail="Invalid token")
-
-
-# ── AUTH ──────────────────────────────────────────────────────────
-@app.post("/register", response_model=schemas.TokenResponse)
-def register(payload: schemas.UserCreate, db: Session = Depends(get_db)):
-    if db.query(models.User).filter(models.User.email == payload.email).first():
-        raise HTTPException(status_code=400, detail="Email already registered")
-    hashed = bcrypt.hashpw(payload.password.encode(), bcrypt.gensalt()).decode()
-    user = models.User(name=payload.name, email=payload.email, password=hashed)
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return {"token": create_token(user.id), "user": user}
-
-
-@app.post("/login", response_model=schemas.TokenResponse)
-def login(payload: schemas.LoginRequest, db: Session = Depends(get_db)):
-    user = db.query(models.User).filter(models.User.email == payload.email).first()
-    if not user or not bcrypt.checkpw(payload.password.encode(), user.password.encode()):
-        raise HTTPException(status_code=401, detail="Invalid credentials")
-    return {"token": create_token(user.id), "user": user}
+        ws_manager.disconnect(websocket)
 
 
 # ── SOIL ──────────────────────────────────────────────────────────
@@ -77,17 +54,34 @@ def analyze_soil(
     db: Session = Depends(get_db),
 ):
     result = SoilAnalyzer.analyze(payload)
-    # Only save to DB if a valid user is logged in
-    # Skipping DB save for now (no auth required in demo mode)
+    # Persist analysis to database for default record (id=1)
+    try:
+        user = db.query(models.User).filter(models.User.id == 1).first()
+        if user:
+            rec = models.SoilData(
+                user_id=user.id,
+                nitrogen=payload.nitrogen,
+                phosphorus=payload.phosphorus,
+                potassium=payload.potassium,
+                ph=payload.ph,
+                organic_carbon=payload.organic_carbon,
+                fertility_score=result.fertility_score,
+                classification=result.classification,
+                created_at=datetime.now(timezone.utc)
+            )
+            db.add(rec)
+            db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f"Warning: Failed to persist soil record: {e}")
     return result
 
 
 @app.get("/soil/history", response_model=List[schemas.SoilRecord])
 def soil_history(
     db: Session = Depends(get_db),
-    user: models.User = Depends(get_current_user),
 ):
-    return db.query(models.SoilData).filter(models.SoilData.user_id == user.id).order_by(models.SoilData.created_at.desc()).limit(50).all()
+    return db.query(models.SoilData).order_by(models.SoilData.created_at.desc()).limit(50).all()
 
 
 # ── IRRIGATION ────────────────────────────────────────────────────
@@ -97,6 +91,23 @@ def calculate_irrigation(
     db: Session = Depends(get_db),
 ):
     result = IrrigationCalculator.calculate(payload)
+    try:
+        user = db.query(models.User).filter(models.User.id == 1).first()
+        if user:
+            rec = models.IrrigationData(
+                user_id=user.id,
+                sm_current=payload.sm_current,
+                sm_optimal=payload.sm_optimal,
+                smd=result.smd,
+                irrigation_required=result.irrigation_required,
+                water_saved=result.water_saved,
+                created_at=datetime.now(timezone.utc)
+            )
+            db.add(rec)
+            db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f"Warning: Failed to persist irrigation record: {e}")
     return result
 
 
@@ -117,9 +128,8 @@ def schedule_irrigation(
 @app.get("/irrigation/history", response_model=List[schemas.IrrigationRecord])
 def irrigation_history(
     db: Session = Depends(get_db),
-    user: models.User = Depends(get_current_user),
 ):
-    return db.query(models.IrrigationData).filter(models.IrrigationData.user_id == user.id).order_by(models.IrrigationData.created_at.desc()).limit(50).all()
+    return db.query(models.IrrigationData).order_by(models.IrrigationData.created_at.desc()).limit(50).all()
 
 
 # ── REPORTS ───────────────────────────────────────────────────────
@@ -127,20 +137,54 @@ def irrigation_history(
 def get_reports(
     db: Session = Depends(get_db),
 ):
-    return {"soil_records": [], "irrigation_records": []}
+    soil = db.query(models.SoilData).order_by(models.SoilData.created_at.desc()).limit(20).all()
+    irr = db.query(models.IrrigationData).order_by(models.IrrigationData.created_at.desc()).limit(20).all()
+    return {
+        "soil_records": [
+            {
+                "id": s.id,
+                "created_at": s.created_at.isoformat() if s.created_at else None,
+                "nitrogen": s.nitrogen,
+                "phosphorus": s.phosphorus,
+                "potassium": s.potassium,
+                "ph": s.ph,
+                "organic_carbon": s.organic_carbon,
+                "fertility_score": s.fertility_score,
+                "classification": s.classification
+            }
+            for s in soil
+        ],
+        "irrigation_records": [
+            {
+                "id": i.id,
+                "created_at": i.created_at.isoformat() if i.created_at else None,
+                "sm_current": i.sm_current,
+                "sm_optimal": i.sm_optimal,
+                "smd": i.smd,
+                "irrigation_required": i.irrigation_required,
+                "water_saved": i.water_saved
+            }
+            for i in irr
+        ]
+    }
 
 @app.get("/reports/export")
 def export_reports(
     db: Session = Depends(get_db),
 ):
-    filename = f"report_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.pdf"
     return {
-        "message": "Export initiated",
-        "download_url": f"/exports/{filename}",
+        "message": "CSV reports ready for download",
+        "download_url": "/api/v1/reports/export/soil-csv",
+        "irrigation_download_url": "/api/v1/reports/export/irrigation-csv",
         "expires_in": 3600,
     }
 
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "timestamp": datetime.utcnow().isoformat()}
+    return {
+        "status": "ok",
+        "service": "IrrigateWise ML & IoT Agricultural Engine",
+        "version": "2.0.0",
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    }

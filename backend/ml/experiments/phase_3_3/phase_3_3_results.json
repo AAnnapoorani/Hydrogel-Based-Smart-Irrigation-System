@@ -1,0 +1,840 @@
+{
+  "metadata": {
+    "title": "Phase 3.3 Controlled Experiment: Pest Presence Screening & Reliability",
+    "timestamp": "2026-10-26T09:32:45Z",
+    "evaluation_samples_total": 1721,
+    "ip102_checkpoint": "best_checkpoint.pt",
+    "disease_model": "model_scripted.pt",
+    "device": "CPU"
+  },
+  "configurations": {
+    "Baseline (A0)": {
+      "configuration": "Baseline (A0)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.25,
+        "tau_unsup": 0.25,
+        "disease_gating": false
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 480,
+        "total_accepted_recall": 0.4706,
+        "total_accepted_recall_ci95": [
+          0.4401,
+          0.5013
+        ],
+        "candidate_accepted_pests": 321,
+        "candidate_accepted_recall": 0.3147,
+        "candidate_accepted_recall_ci95": [
+          0.2869,
+          0.3439
+        ],
+        "unsupported_accepted_pests": 159
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 35,
+        "healthy_total": 300,
+        "healthy_fpr": 0.1167,
+        "healthy_fpr_ci95": [
+          0.0851,
+          0.1579
+        ],
+        "disease_fp": 67,
+        "disease_total": 350,
+        "disease_fpr": 0.1914,
+        "disease_fpr_ci95": [
+          0.1536,
+          0.2359
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 102,
+        "overall_negatives": 701,
+        "overall_fpr": 0.1455,
+        "overall_fpr_ci95": [
+          0.1213,
+          0.1735
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.8247,
+        "def1_all_accepted_ci95": [
+          0.7918,
+          0.8535
+        ],
+        "def1_numerator_pests": 480,
+        "def1_denominator_total": 582,
+        "def2_candidate_only_precision": 0.7589,
+        "def2_candidate_only_ci95": [
+          0.7159,
+          0.7972
+        ],
+        "def2_numerator_candidates": 321,
+        "def2_denominator_total": 423
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 119,
+        "validated_pct": 11.67,
+        "candidate_count": 202,
+        "candidate_pct": 19.8,
+        "unsupported_count": 159,
+        "unsupported_pct": 15.59
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.29
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 237,
+        "accepted_total": 480,
+        "species_accuracy_among_accepted": 0.4938,
+        "species_accuracy_ci95": [
+          0.4493,
+          0.5383
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 540,
+        "pest_inconclusive_rate": 0.5294,
+        "healthy_inconclusive_rate": 0.8833,
+        "disease_inconclusive_rate": 0.8086,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 0,
+        "disease_false_positives_suppressed": 0
+      },
+      "binary_confusion_matrix": {
+        "TP": 480,
+        "FN": 540,
+        "FP": 102,
+        "TN": 599
+      }
+    },
+    "Tiered Thresholds (A1: 0.25/0.35)": {
+      "configuration": "Tiered Thresholds (A1: 0.25/0.35)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": false
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 434,
+        "total_accepted_recall": 0.4255,
+        "total_accepted_recall_ci95": [
+          0.3955,
+          0.4561
+        ],
+        "candidate_accepted_pests": 275,
+        "candidate_accepted_recall": 0.2696,
+        "candidate_accepted_recall_ci95": [
+          0.2433,
+          0.2977
+        ],
+        "unsupported_accepted_pests": 159
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 21,
+        "healthy_total": 300,
+        "healthy_fpr": 0.07,
+        "healthy_fpr_ci95": [
+          0.0462,
+          0.1046
+        ],
+        "disease_fp": 25,
+        "disease_total": 350,
+        "disease_fpr": 0.0714,
+        "disease_fpr_ci95": [
+          0.0488,
+          0.1033
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 46,
+        "overall_negatives": 701,
+        "overall_fpr": 0.0656,
+        "overall_fpr_ci95": [
+          0.0496,
+          0.0864
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9042,
+        "def1_all_accepted_ci95": [
+          0.8745,
+          0.9274
+        ],
+        "def1_numerator_pests": 434,
+        "def1_denominator_total": 480,
+        "def2_candidate_only_precision": 0.8567,
+        "def2_candidate_only_ci95": [
+          0.8141,
+          0.8908
+        ],
+        "def2_numerator_candidates": 275,
+        "def2_denominator_total": 321
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 119,
+        "validated_pct": 11.67,
+        "candidate_count": 156,
+        "candidate_pct": 15.29,
+        "unsupported_count": 159,
+        "unsupported_pct": 15.59
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.2815
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 225,
+        "accepted_total": 434,
+        "species_accuracy_among_accepted": 0.5184,
+        "species_accuracy_ci95": [
+          0.4715,
+          0.5651
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 586,
+        "pest_inconclusive_rate": 0.5745,
+        "healthy_inconclusive_rate": 0.93,
+        "disease_inconclusive_rate": 0.9286,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 0,
+        "disease_false_positives_suppressed": 0
+      },
+      "binary_confusion_matrix": {
+        "TP": 434,
+        "FN": 586,
+        "FP": 46,
+        "TN": 655
+      }
+    },
+    "Tiered Thresholds (A2: 0.25/0.40)": {
+      "configuration": "Tiered Thresholds (A2: 0.25/0.40)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.4,
+        "tau_unsup": 0.25,
+        "disease_gating": false
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 406,
+        "total_accepted_recall": 0.398,
+        "total_accepted_recall_ci95": [
+          0.3684,
+          0.4284
+        ],
+        "candidate_accepted_pests": 247,
+        "candidate_accepted_recall": 0.2422,
+        "candidate_accepted_recall_ci95": [
+          0.2169,
+          0.2694
+        ],
+        "unsupported_accepted_pests": 159
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 21,
+        "healthy_total": 300,
+        "healthy_fpr": 0.07,
+        "healthy_fpr_ci95": [
+          0.0462,
+          0.1046
+        ],
+        "disease_fp": 17,
+        "disease_total": 350,
+        "disease_fpr": 0.0486,
+        "disease_fpr_ci95": [
+          0.0305,
+          0.0764
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 38,
+        "overall_negatives": 701,
+        "overall_fpr": 0.0542,
+        "overall_fpr_ci95": [
+          0.0397,
+          0.0735
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9144,
+        "def1_all_accepted_ci95": [
+          0.8847,
+          0.937
+        ],
+        "def1_numerator_pests": 406,
+        "def1_denominator_total": 444,
+        "def2_candidate_only_precision": 0.8667,
+        "def2_candidate_only_ci95": [
+          0.8223,
+          0.9013
+        ],
+        "def2_numerator_candidates": 247,
+        "def2_denominator_total": 285
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 119,
+        "validated_pct": 11.67,
+        "candidate_count": 128,
+        "candidate_pct": 12.55,
+        "unsupported_count": 159,
+        "unsupported_pct": 15.59
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.2705
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 214,
+        "accepted_total": 406,
+        "species_accuracy_among_accepted": 0.5271,
+        "species_accuracy_ci95": [
+          0.4785,
+          0.5752
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 614,
+        "pest_inconclusive_rate": 0.602,
+        "healthy_inconclusive_rate": 0.93,
+        "disease_inconclusive_rate": 0.9514,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 0,
+        "disease_false_positives_suppressed": 0
+      },
+      "binary_confusion_matrix": {
+        "TP": 406,
+        "FN": 614,
+        "FP": 38,
+        "TN": 663
+      }
+    },
+    "Disease-Assisted Rejection (B: tau_dis=0.75)": {
+      "configuration": "Disease-Assisted Rejection (B: tau_dis=0.75)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.25,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 454,
+        "total_accepted_recall": 0.4451,
+        "total_accepted_recall_ci95": [
+          0.4149,
+          0.4757
+        ],
+        "candidate_accepted_pests": 306,
+        "candidate_accepted_recall": 0.3,
+        "candidate_accepted_recall_ci95": [
+          0.2727,
+          0.3288
+        ],
+        "unsupported_accepted_pests": 148
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 35,
+        "healthy_total": 300,
+        "healthy_fpr": 0.1167,
+        "healthy_fpr_ci95": [
+          0.0851,
+          0.1579
+        ],
+        "disease_fp": 6,
+        "disease_total": 350,
+        "disease_fpr": 0.0171,
+        "disease_fpr_ci95": [
+          0.0079,
+          0.0369
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 41,
+        "overall_negatives": 701,
+        "overall_fpr": 0.0585,
+        "overall_fpr_ci95": [
+          0.0434,
+          0.0784
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9172,
+        "def1_all_accepted_ci95": [
+          0.8896,
+          0.9384
+        ],
+        "def1_numerator_pests": 454,
+        "def1_denominator_total": 495,
+        "def2_candidate_only_precision": 0.8818,
+        "def2_candidate_only_ci95": [
+          0.8436,
+          0.9117
+        ],
+        "def2_numerator_candidates": 306,
+        "def2_denominator_total": 347
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 113,
+        "validated_pct": 11.08,
+        "candidate_count": 193,
+        "candidate_pct": 18.92,
+        "unsupported_count": 148,
+        "unsupported_pct": 14.51
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.2848
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 229,
+        "accepted_total": 454,
+        "species_accuracy_among_accepted": 0.5044,
+        "species_accuracy_ci95": [
+          0.4586,
+          0.5502
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 566,
+        "pest_inconclusive_rate": 0.5549,
+        "healthy_inconclusive_rate": 0.8833,
+        "disease_inconclusive_rate": 0.9829,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 26,
+        "disease_false_positives_suppressed": 61
+      },
+      "binary_confusion_matrix": {
+        "TP": 454,
+        "FN": 566,
+        "FP": 41,
+        "TN": 660
+      }
+    },
+    "Disease-Assisted Rejection (B: tau_dis=0.60)": {
+      "configuration": "Disease-Assisted Rejection (B: tau_dis=0.60)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.25,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.6,
+        "tau_suppress_pest": 0.45
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 411,
+        "total_accepted_recall": 0.4029,
+        "total_accepted_recall_ci95": [
+          0.3733,
+          0.4334
+        ],
+        "candidate_accepted_pests": 281,
+        "candidate_accepted_recall": 0.2755,
+        "candidate_accepted_recall_ci95": [
+          0.249,
+          0.3037
+        ],
+        "unsupported_accepted_pests": 130
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 35,
+        "healthy_total": 300,
+        "healthy_fpr": 0.1167,
+        "healthy_fpr_ci95": [
+          0.0851,
+          0.1579
+        ],
+        "disease_fp": 6,
+        "disease_total": 350,
+        "disease_fpr": 0.0171,
+        "disease_fpr_ci95": [
+          0.0079,
+          0.0369
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 41,
+        "overall_negatives": 701,
+        "overall_fpr": 0.0585,
+        "overall_fpr_ci95": [
+          0.0434,
+          0.0784
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9093,
+        "def1_all_accepted_ci95": [
+          0.8793,
+          0.9324
+        ],
+        "def1_numerator_pests": 411,
+        "def1_denominator_total": 452,
+        "def2_candidate_only_precision": 0.8727,
+        "def2_candidate_only_ci95": [
+          0.8318,
+          0.9047
+        ],
+        "def2_numerator_candidates": 281,
+        "def2_denominator_total": 322
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 102,
+        "validated_pct": 10.0,
+        "candidate_count": 179,
+        "candidate_pct": 17.55,
+        "unsupported_count": 130,
+        "unsupported_pct": 12.75
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.2736
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 216,
+        "accepted_total": 411,
+        "species_accuracy_among_accepted": 0.5255,
+        "species_accuracy_ci95": [
+          0.4773,
+          0.5734
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 609,
+        "pest_inconclusive_rate": 0.5971,
+        "healthy_inconclusive_rate": 0.8833,
+        "disease_inconclusive_rate": 0.9829,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 69,
+        "disease_false_positives_suppressed": 61
+      },
+      "binary_confusion_matrix": {
+        "TP": 411,
+        "FN": 609,
+        "FP": 41,
+        "TN": 660
+      }
+    },
+    "Combined Strategy (C1: A1 + B_0.75)": {
+      "configuration": "Combined Strategy (C1: A1 + B_0.75)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 412,
+        "total_accepted_recall": 0.4039,
+        "total_accepted_recall_ci95": [
+          0.3742,
+          0.4343
+        ],
+        "candidate_accepted_pests": 264,
+        "candidate_accepted_recall": 0.2588,
+        "candidate_accepted_recall_ci95": [
+          0.2329,
+          0.2866
+        ],
+        "unsupported_accepted_pests": 148
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 21,
+        "healthy_total": 300,
+        "healthy_fpr": 0.07,
+        "healthy_fpr_ci95": [
+          0.0462,
+          0.1046
+        ],
+        "disease_fp": 6,
+        "disease_total": 350,
+        "disease_fpr": 0.0171,
+        "disease_fpr_ci95": [
+          0.0079,
+          0.0369
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 27,
+        "overall_negatives": 701,
+        "overall_fpr": 0.0385,
+        "overall_fpr_ci95": [
+          0.0266,
+          0.0555
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9385,
+        "def1_all_accepted_ci95": [
+          0.912,
+          0.9574
+        ],
+        "def1_numerator_pests": 412,
+        "def1_denominator_total": 439,
+        "def2_candidate_only_precision": 0.9072,
+        "def2_candidate_only_ci95": [
+          0.8684,
+          0.9354
+        ],
+        "def2_numerator_candidates": 264,
+        "def2_denominator_total": 291
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 113,
+        "validated_pct": 11.08,
+        "candidate_count": 151,
+        "candidate_pct": 14.8,
+        "unsupported_count": 148,
+        "unsupported_pct": 14.51
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.2757
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 217,
+        "accepted_total": 412,
+        "species_accuracy_among_accepted": 0.5267,
+        "species_accuracy_ci95": [
+          0.4785,
+          0.5744
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 608,
+        "pest_inconclusive_rate": 0.5961,
+        "healthy_inconclusive_rate": 0.93,
+        "disease_inconclusive_rate": 0.9829,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 22,
+        "disease_false_positives_suppressed": 19
+      },
+      "binary_confusion_matrix": {
+        "TP": 412,
+        "FN": 608,
+        "FP": 27,
+        "TN": 674
+      }
+    },
+    "Combined Strategy (C2: A2 + B_0.75)": {
+      "configuration": "Combined Strategy (C2: A2 + B_0.75)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.4,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_foliage": 300,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1721
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 387,
+        "total_accepted_recall": 0.3794,
+        "total_accepted_recall_ci95": [
+          0.3501,
+          0.4096
+        ],
+        "candidate_accepted_pests": 239,
+        "candidate_accepted_recall": 0.2343,
+        "candidate_accepted_recall_ci95": [
+          0.2093,
+          0.2613
+        ],
+        "unsupported_accepted_pests": 148
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_fp": 21,
+        "healthy_total": 300,
+        "healthy_fpr": 0.07,
+        "healthy_fpr_ci95": [
+          0.0462,
+          0.1046
+        ],
+        "disease_fp": 6,
+        "disease_total": 350,
+        "disease_fpr": 0.0171,
+        "disease_fpr_ci95": [
+          0.0079,
+          0.0369
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 27,
+        "overall_negatives": 701,
+        "overall_fpr": 0.0385,
+        "overall_fpr_ci95": [
+          0.0266,
+          0.0555
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9348,
+        "def1_all_accepted_ci95": [
+          0.9068,
+          0.9548
+        ],
+        "def1_numerator_pests": 387,
+        "def1_denominator_total": 414,
+        "def2_candidate_only_precision": 0.8985,
+        "def2_candidate_only_ci95": [
+          0.8563,
+          0.9293
+        ],
+        "def2_numerator_candidates": 239,
+        "def2_denominator_total": 266
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 113,
+        "validated_pct": 11.08,
+        "candidate_count": 126,
+        "candidate_pct": 12.35,
+        "unsupported_count": 148,
+        "unsupported_pct": 14.51
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "top5_overall_correct": 570,
+        "top5_overall_accuracy": 0.5588,
+        "macro_f1_score": 0.264
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 206,
+        "accepted_total": 387,
+        "species_accuracy_among_accepted": 0.5323,
+        "species_accuracy_ci95": [
+          0.4825,
+          0.5814
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 633,
+        "pest_inconclusive_rate": 0.6206,
+        "healthy_inconclusive_rate": 0.93,
+        "disease_inconclusive_rate": 0.9829,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "disease_suppression_telemetry": {
+        "genuine_pests_suppressed": 19,
+        "disease_false_positives_suppressed": 11
+      },
+      "binary_confusion_matrix": {
+        "TP": 387,
+        "FN": 633,
+        "FP": 27,
+        "TN": 674
+      }
+    }
+  },
+  "runtime_latency": {
+    "runs": 100,
+    "warmup": 20,
+    "ip102_only_ms": {
+      "median": 15.1,
+      "mean": 15.61,
+      "p95": 19.0,
+      "std": 3.16
+    },
+    "disease_only_ms": {
+      "median": 12.14,
+      "mean": 12.04,
+      "p95": 14.02,
+      "std": 1.42
+    },
+    "dual_pipeline_ms": {
+      "median": 27.45,
+      "mean": 29.11,
+      "p95": 41.02,
+      "std": 9.26
+    }
+  }
+}

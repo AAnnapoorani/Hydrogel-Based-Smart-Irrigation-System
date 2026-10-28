@@ -1,0 +1,991 @@
+[
+  {
+    "id": "tomato_bush",
+    "name": "Bush / Potted Tomato",
+    "scientific_name": "Solanum lycopersicum",
+    "tamil_name": "Thakkali (தக்காளி)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 6.0,
+    "sunlight_req_text": "6–8 hours direct sunlight",
+    "min_container_litres": 15.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate_high",
+    "watering_needs": "Requires regular, uniform moisture. Sensitive to dry-wet oscillations.",
+    "hydrogel_synergy": "Exceptional (+42% yield stability). Hydrogel eliminates moisture swings that cause calcium deficiency and blossom-end rot.",
+    "preferred_medium": "Cocopeat + Vermicompost + Perlite (50:30:20 ratio)",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter",
+      "sw_monsoon"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "65–80 days to first harvest; productive for 4–5 months",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary"
+    ],
+    "maintenance": "moderate",
+    "care_instructions": [
+      "Provide sturdy bamboo staking or cage as fruit clusters develop.",
+      "Prune lower yellowing leaves touching the soil to prevent fungal splash infection.",
+      "Apply 1 handful of vermicompost and neem cake every 15 days."
+    ],
+    "companion_plants": [
+      "African Marigold",
+      "Sweet Basil",
+      "Bush Beans"
+    ],
+    "potential_challenges": "Prone to early blight in high humidity; avoid overhead foliar watering."
+  },
+  {
+    "id": "cherry_tomato",
+    "name": "Cherry Tomato",
+    "scientific_name": "Solanum lycopersicum var. cerasiforme",
+    "tamil_name": "Mini Thakkali",
+    "category": "Vegetables",
+    "min_sunlight_hours": 5.0,
+    "sunlight_req_text": "5–7 hours direct sunlight",
+    "min_container_litres": 10.0,
+    "recommended_pot_depth_inches": 10.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Consistent root hydration. Drought causes premature flower drop.",
+    "hydrogel_synergy": "High. Hydrogel buffer keeps substrate at 55–60% VWC, maximizing sugar concentration and preventing fruit splitting.",
+    "preferred_medium": "Cocopeat mix enriched with organic compost",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter",
+      "sw_monsoon"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "55–70 days to harvest; prolific heavy producer",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary",
+      "kids_gardening"
+    ],
+    "maintenance": "low_to_moderate",
+    "care_instructions": [
+      "Easy container grower; ideal for 10L to 15L grow bags.",
+      "Tolerates container confinement better than standard beefsteak tomatoes.",
+      "Harvest regularly to stimulate continuous flowering."
+    ],
+    "companion_plants": [
+      "Marigold",
+      "Mint",
+      "Basil"
+    ],
+    "potential_challenges": "Watch for whiteflies on tender undersides during warm spells."
+  },
+  {
+    "id": "green_chilli",
+    "name": "Green Chilli",
+    "scientific_name": "Capsicum annuum",
+    "tamil_name": "Pachai Milagai (பச்சை மிளகாய்)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 5.0,
+    "sunlight_req_text": "5–6 hours full sunlight",
+    "min_container_litres": 10.0,
+    "recommended_pot_depth_inches": 10.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Moderate watering; allow top 1 inch to dry slightly between cycles.",
+    "hydrogel_synergy": "Very High. Hydrogel provides sub-surface moisture without surface waterlogging, preventing damping-off and leaf curl.",
+    "preferred_medium": "Well-drained red soil + cocopeat + compost",
+    "seasons_suitable": [
+      "summer",
+      "post_monsoon",
+      "sw_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "60–75 days to first harvest; perennial for 1.5–2 years in Tamil Nadu",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary"
+    ],
+    "maintenance": "low_to_moderate",
+    "care_instructions": [
+      "Pinch growing tip at 6 inches height to promote bushy lateral branching.",
+      "Spray diluted sour buttermilk or neem oil monthly to deter leaf-curl virus vectors.",
+      "Thrives in warm, sunny terrace exposures."
+    ],
+    "companion_plants": [
+      "Marigold",
+      "Okra",
+      "Coriander"
+    ],
+    "potential_challenges": "Thrips and aphids can transmit leaf-curl virus; maintain air circulation."
+  },
+  {
+    "id": "brinjal_eggplant",
+    "name": "Brinjal / Eggplant",
+    "scientific_name": "Solanum melongena",
+    "tamil_name": "Kathirikai (கத்தரிக்காய்)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 6.0,
+    "sunlight_req_text": "6+ hours intense sunlight",
+    "min_container_litres": 15.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate_high",
+    "watering_needs": "High water uptake during flowering and fruit fattening.",
+    "hydrogel_synergy": "Substantial. Absorbs heavy irrigation pulses and supplies roots during peak midday heat, preventing afternoon drooping.",
+    "preferred_medium": "Rich potting mix with high organic matter (30% vermicompost)",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "70–85 days to harvest; robust continuous producer",
+    "difficulty": "Intermediate",
+    "purposes": [
+      "household_consumption",
+      "culinary"
+    ],
+    "maintenance": "moderate",
+    "care_instructions": [
+      "Requires minimum 15L grow bag depth for taproot exploration.",
+      "Feed with fermented mustard cake or seaweed extract every 3 weeks.",
+      "Check shoot tips weekly for shoot and fruit borer entry holes."
+    ],
+    "companion_plants": [
+      "Bush Beans",
+      "Marigold",
+      "Mint"
+    ],
+    "potential_challenges": "Shoot and fruit borer; prune affected shoot tips immediately."
+  },
+  {
+    "id": "okra_bhendi",
+    "name": "Okra / Lady's Finger",
+    "scientific_name": "Abelmoschus esculentus",
+    "tamil_name": "Vendaikkai (வெண்டைக்காய்)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 6.0,
+    "sunlight_req_text": "6–8 hours blazing sunlight",
+    "min_container_litres": 12.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Moderate, regular watering. Heat-tolerant but pods turn fibrous under drought.",
+    "hydrogel_synergy": "High. Keeps pods succulent, tender, and fast-growing without water waste.",
+    "preferred_medium": "Loamy cocopeat blend with neutral pH (6.0–6.8)",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon"
+    ],
+    "unsuitable_seasons": [
+      "severe_cold"
+    ],
+    "growth_timeline": "45–55 days to first pod picking; extremely fast cycle",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Direct sow seeds 1 inch deep in 12L–15L bags.",
+      "Harvest young pods every 2 days to encourage continuous fruiting.",
+      "Tolerates hot terrace rooftop sun better than most vegetables."
+    ],
+    "companion_plants": [
+      "Chilli",
+      "Coriander",
+      "Zinnia"
+    ],
+    "potential_challenges": "Yellow vein mosaic virus; choose YVMV-resistant seed varieties."
+  },
+  {
+    "id": "bush_beans",
+    "name": "Bush French Beans",
+    "scientific_name": "Phaseolus vulgaris",
+    "tamil_name": "Beans",
+    "category": "Vegetables",
+    "min_sunlight_hours": 4.5,
+    "sunlight_req_text": "4–6 hours direct sunlight",
+    "min_container_litres": 10.0,
+    "recommended_pot_depth_inches": 8.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Moderate, steady moisture. Do not let soil bake completely dry.",
+    "hydrogel_synergy": "Moderate. Fixes atmospheric nitrogen, leaving potting mix enriched for subsequent crops.",
+    "preferred_medium": "Light cocopeat potting soil with good aeration",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "50–60 days to harvest; compact non-climbing habit",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary",
+      "soil_enrichment"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Compact bush form requires no tall trellising.",
+      "Plant 2–3 plants in a single 15L rectangular grow bag.",
+      "Avoid excessive nitrogen fertilizer which causes lush leaves but few pods."
+    ],
+    "companion_plants": [
+      "Tomato",
+      "Eggplant",
+      "Radish"
+    ],
+    "potential_challenges": "Sensitive to high heat over 35°C during flower set."
+  },
+  {
+    "id": "amaranth_keerai",
+    "name": "Amaranth / Red Keerai",
+    "scientific_name": "Amaranthus tricolor",
+    "tamil_name": "Thandu Keerai / Sivappu Keerai (தண்டுக்கீரை)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 4.0,
+    "sunlight_req_text": "4–6 hours sunlight (tolerates partial shade)",
+    "min_container_litres": 5.0,
+    "recommended_pot_depth_inches": 6.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Light, daily watering via fine micro-sprayer or drip.",
+    "hydrogel_synergy": "Substantial for shallow containers. Prevents rapid surface drying on hot terraces.",
+    "preferred_medium": "Fine cocopeat + vermicompost shallow mix",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "25–30 days for microgreens / tender greens; 45 days for full stalks",
+    "difficulty": "Beginner Friendly (Super Easy)",
+    "purposes": [
+      "household_consumption",
+      "culinary",
+      "quick_harvest",
+      "kids_gardening"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Broadcast seeds mixed with fine sand for even spacing in rectangular crates.",
+      "Can be harvested by cut-and-come-again method 3 to 4 times.",
+      "Rich in dietary iron, calcium, and vitamins."
+    ],
+    "companion_plants": [
+      "Okra",
+      "Chilli",
+      "Tomato"
+    ],
+    "potential_challenges": "Damping off if seeds are sown too densely without ventilation."
+  },
+  {
+    "id": "palak_spinach",
+    "name": "Indian Spinach / Palak",
+    "scientific_name": "Spinacia oleracea",
+    "tamil_name": "Palak Keerai (பாலக் கீரை)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 3.0,
+    "sunlight_req_text": "3–5 hours morning or filtered sunlight",
+    "min_container_litres": 5.0,
+    "recommended_pot_depth_inches": 6.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Keep potting mix consistently cool and moist.",
+    "hydrogel_synergy": "High. Keeps shallow container root zone hydrated under direct sunlight.",
+    "preferred_medium": "Cocopeat + compost rich in nitrogen",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "30–40 days to first leaf harvest; multiple flushes",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary",
+      "shade_tolerant"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Ideal for partial shade terrace corners or under shade-netting.",
+      "Harvest outer mature leaves, allowing central crown to regenerate.",
+      "Bolts (flowers prematurely) in high summer heat."
+    ],
+    "companion_plants": [
+      "Radish",
+      "Bush Beans",
+      "Strawberry"
+    ],
+    "potential_challenges": "Leaf miner tracks; remove affected leaves promptly."
+  },
+  {
+    "id": "radish_mullangi",
+    "name": "White Radish",
+    "scientific_name": "Raphanus sativus",
+    "tamil_name": "Mullangi (முள்ளங்கி)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 4.5,
+    "sunlight_req_text": "4–6 hours sunlight",
+    "min_container_litres": 10.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Uniform moisture ensures crisp, mild, non-fibrous roots.",
+    "hydrogel_synergy": "Very High. Uneven moisture makes radishes pungent, woody, and cracked.",
+    "preferred_medium": "Loose, stone-free cocopeat + compost blend",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "35–45 days from seed to harvest",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "household_consumption",
+      "culinary",
+      "fast_results"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Ensure container depth is at least 10–12 inches for root expansion.",
+      "Do not transplant; direct sow seeds 1/2 inch deep.",
+      "Thin seedlings to 3 inches apart after germination."
+    ],
+    "companion_plants": [
+      "Spinach",
+      "Bush Beans",
+      "Mint"
+    ],
+    "potential_challenges": "Root forking if medium has dense compacted lumps."
+  },
+  {
+    "id": "mint_pudina",
+    "name": "Spearmint / Pudina",
+    "scientific_name": "Mentha spicata",
+    "tamil_name": "Pudina (புதினா)",
+    "category": "Herbs",
+    "min_sunlight_hours": 3.0,
+    "sunlight_req_text": "3–5 hours morning or dappled sunlight",
+    "min_container_litres": 5.0,
+    "recommended_pot_depth_inches": 6.0,
+    "water_need_level": "moderate_high",
+    "watering_needs": "Prefers consistently moist soil; wilted easily by dry midday winds.",
+    "hydrogel_synergy": "Critical (+55% retention improvement). Prevents thin, shallow runner roots from baking in terrace heat.",
+    "preferred_medium": "Light, moisture-retentive cocopeat + organic vermicompost",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "20–30 days from stem cuttings; vigorous creeping runner",
+    "difficulty": "Beginner Friendly (Almost Indestructible)",
+    "purposes": [
+      "cooking_herbs",
+      "culinary",
+      "shade_tolerant",
+      "fast_growth"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Propagates easily from kitchen market mint stems placed in water for 3 days.",
+      "Grow in dedicated shallow wide pot to prevent it overtaking companion plants.",
+      "Trim stems frequently to stimulate dense, aromatic foliage."
+    ],
+    "companion_plants": [
+      "Tomato",
+      "Eggplant"
+    ],
+    "potential_challenges": "Invasive root runners if mixed in same container with slow growers."
+  },
+  {
+    "id": "coriander_kothamalli",
+    "name": "Coriander / Cilantro",
+    "scientific_name": "Coriandrum sativum",
+    "tamil_name": "Kothamalli (கொத்தமல்லி)",
+    "category": "Herbs",
+    "min_sunlight_hours": 3.5,
+    "sunlight_req_text": "3–5 hours mild morning sun",
+    "min_container_litres": 5.0,
+    "recommended_pot_depth_inches": 6.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Gentle, light moisture. Heavy waterlogging causes root rot.",
+    "hydrogel_synergy": "High. Keeps upper 2 inches of potting mix uniformly damp without surface crusting.",
+    "preferred_medium": "Well-drained porous cocopeat + compost (60:40)",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "30–45 days to harvest; continuous succession sowing",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "cooking_herbs",
+      "culinary",
+      "fragrant"
+    ],
+    "maintenance": "low_to_moderate",
+    "care_instructions": [
+      "Crush whole coriander seeds gently into halves before soaking overnight.",
+      "Sow shallowly in wide trays or 8-inch deep grow bags.",
+      "Place in mild morning sun; move to partial shade if afternoon temperatures exceed 32°C."
+    ],
+    "companion_plants": [
+      "Okra",
+      "Chilli",
+      "Tomato"
+    ],
+    "potential_challenges": "Bolts quickly into flower under sudden heat spikes."
+  },
+  {
+    "id": "holy_basil_tulsi",
+    "name": "Holy Basil / Tulsi",
+    "scientific_name": "Ocimum tenuiflorum",
+    "tamil_name": "Tulsi (துளசி)",
+    "category": "Herbs",
+    "min_sunlight_hours": 5.0,
+    "sunlight_req_text": "4–6 hours bright sunlight",
+    "min_container_litres": 10.0,
+    "recommended_pot_depth_inches": 10.0,
+    "water_need_level": "low_moderate",
+    "watering_needs": "Water when top 1 inch becomes dry. Tolerates dry spells well.",
+    "hydrogel_synergy": "Moderate. Protects root ball during festival absences or travel.",
+    "preferred_medium": "Well-draining red soil + compost with coarse sand",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "40–60 days to mature plant; perennial sacred medicinal bush",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "medicinal",
+      "cooking_herbs",
+      "spiritual",
+      "pollinators"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Pinch off flower spikes (manjari) regularly to keep the bush leafy and vibrant.",
+      "Requires well-draining container; hates stagnant water around base.",
+      "Sacred medicinal plant widely revered for tea and immunity."
+    ],
+    "companion_plants": [
+      "Chilli",
+      "Tomato",
+      "Marigold"
+    ],
+    "potential_challenges": "Sooty mold if attacked by aphids; spray dilute neem solution."
+  },
+  {
+    "id": "curry_leaf",
+    "name": "Curry Leaf Tree",
+    "scientific_name": "Murraya koenigii",
+    "tamil_name": "Kariveppilai (கறிவேப்பிலை)",
+    "category": "Herbs",
+    "min_sunlight_hours": 5.5,
+    "sunlight_req_text": "5–7 hours bright sunny location",
+    "min_container_litres": 20.0,
+    "recommended_pot_depth_inches": 15.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Deep thorough watering, then allow top 2 inches to dry slightly.",
+    "hydrogel_synergy": "Very High. Deep container root systems thrive on the steady capillary moisture buffer.",
+    "preferred_medium": "Heavy loamy potting mix enriched with aged cow dung manure",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Perennial shrub/tree; harvest leaves indefinitely after 3 months",
+    "difficulty": "Intermediate",
+    "purposes": [
+      "cooking_herbs",
+      "culinary",
+      "long_term_investment"
+    ],
+    "maintenance": "low_to_moderate",
+    "care_instructions": [
+      "Use a minimum 20L to 30L container or large grow bag.",
+      "Feed sour buttermilk diluted in water (1:10) once every fortnight to boost fragrance.",
+      "Prune main stem periodically to encourage multi-stem branching."
+    ],
+    "companion_plants": [
+      "Marigold",
+      "Tulsi"
+    ],
+    "potential_challenges": "Psyllid pests on tender new leaf shoots; treat with organic neem spray."
+  },
+  {
+    "id": "sweet_basil",
+    "name": "Sweet / Italian Basil",
+    "scientific_name": "Ocimum basilicum",
+    "tamil_name": "Thirunittru Pachai",
+    "category": "Herbs",
+    "min_sunlight_hours": 4.5,
+    "sunlight_req_text": "4–6 hours sunlight",
+    "min_container_litres": 8.0,
+    "recommended_pot_depth_inches": 8.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Water consistently to prevent wilting of broad, aromatic leaves.",
+    "hydrogel_synergy": "High. Keeps broad culinary leaves lush and intensely aromatic.",
+    "preferred_medium": "Aerated cocopeat + vermicompost + perlite",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter",
+      "sw_monsoon"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "35–45 days to first harvest; prolific culinary herb",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "cooking_herbs",
+      "culinary",
+      "fragrant",
+      "pollinators"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Pinch flower heads as soon as they form to prolong leaf production.",
+      "Top companion plant for potted tomatoes; deters whiteflies and hornworms.",
+      "Excellent for fresh pesto, pastas, and salads."
+    ],
+    "companion_plants": [
+      "Tomato",
+      "Chilli",
+      "Eggplant"
+    ],
+    "potential_challenges": "Fusarium wilt if soil remains overly saturated without aeration."
+  },
+  {
+    "id": "african_marigold",
+    "name": "African Marigold",
+    "scientific_name": "Tagetes erecta",
+    "tamil_name": "Samandhi / Thulukka Saamandhi (சாமந்தி)",
+    "category": "Flowering",
+    "min_sunlight_hours": 6.0,
+    "sunlight_req_text": "6+ hours intense direct sun",
+    "min_container_litres": 10.0,
+    "recommended_pot_depth_inches": 9.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Moderate; water at soil level to keep flower heads dry.",
+    "hydrogel_synergy": "High. Keeps heavy flower heads turgid during hot afternoon hours.",
+    "preferred_medium": "Porous cocopeat + garden soil mix",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "45–60 days to full bloom; blooms continuously for months",
+    "difficulty": "Beginner Friendly (Super Resilient)",
+    "purposes": [
+      "aesthetics",
+      "pollinators",
+      "pest_deterrent",
+      "companion_planting"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Essential companion plant for terrace gardens: roots exude alpha-terthienyl, suppressing root-knot nematodes.",
+      "Attracts hoverflies, bees, and ladybugs that prey on garden pests.",
+      "Deadhead spent flowers to stimulate continuous prolific blooming."
+    ],
+    "companion_plants": [
+      "Tomato",
+      "Chilli",
+      "Eggplant",
+      "Bush Beans"
+    ],
+    "potential_challenges": "Red spider mites during dry dusty weather; mist foliage occasionally."
+  },
+  {
+    "id": "dwarf_hibiscus",
+    "name": "Dwarf / Container Hibiscus",
+    "scientific_name": "Hibiscus rosa-sinensis",
+    "tamil_name": "Semparuthi (செம்பருத்தி)",
+    "category": "Flowering",
+    "min_sunlight_hours": 5.5,
+    "sunlight_req_text": "5–7 hours bright sunlight",
+    "min_container_litres": 15.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate_high",
+    "watering_needs": "Regular watering during flowering season. Drops buds if allowed to desiccate.",
+    "hydrogel_synergy": "Exceptional. Prevents soil drying shocks that trigger premature flower bud abortion.",
+    "preferred_medium": "Acidic to neutral rich potting mix (pH 6.0–6.5)",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Perennial flowering shrub; blooms all year round in Tamil Nadu",
+    "difficulty": "Intermediate",
+    "purposes": [
+      "aesthetics",
+      "spiritual",
+      "pollinators",
+      "herbal_tea"
+    ],
+    "maintenance": "moderate",
+    "care_instructions": [
+      "Apply high-potassium organic fertilizer (banana peel tea or wood ash) monthly.",
+      "Prune lightly once or twice a year to promote bushy shape and new flower wood.",
+      "Prized for hair oils and health tonics."
+    ],
+    "companion_plants": [
+      "Marigold",
+      "Tulsi"
+    ],
+    "potential_challenges": "Mealybugs love tender calyxes; spray soap-water emulsion immediately."
+  },
+  {
+    "id": "zinnia_elegans",
+    "name": "Zinnia",
+    "scientific_name": "Zinnia elegans",
+    "tamil_name": "Zinnia Malar",
+    "category": "Flowering",
+    "min_sunlight_hours": 6.0,
+    "sunlight_req_text": "6+ hours blazing sun",
+    "min_container_litres": 8.0,
+    "recommended_pot_depth_inches": 8.0,
+    "water_need_level": "low_moderate",
+    "watering_needs": "Moderate; drought-hardy once established.",
+    "hydrogel_synergy": "High. Keeps vibrant petals brilliant without drooping under hot sun.",
+    "preferred_medium": "Well-drained light soil mix",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon"
+    ],
+    "unsuitable_seasons": [
+      "severe_monsoon_floods"
+    ],
+    "growth_timeline": "45–55 days from seed to explosion of bright multi-colored blooms",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "aesthetics",
+      "pollinators",
+      "cut_flowers",
+      "fast_results"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "One of the best butterfly and bee attractors for terrace container gardens.",
+      "Water only at the root base; avoid wetting petals to prevent fungal spots.",
+      "Available in dazzling pink, red, orange, and yellow daisy-like blooms."
+    ],
+    "companion_plants": [
+      "Marigold",
+      "Okra",
+      "Chilli"
+    ],
+    "potential_challenges": "Powdery mildew if planted too densely in stagnant air."
+  },
+  {
+    "id": "arabian_jasmine",
+    "name": "Arabian Jasmine / Madurai Malli",
+    "scientific_name": "Jasminum sambac",
+    "tamil_name": "Gundu Malli (குண்டு மல்லி)",
+    "category": "Flowering",
+    "min_sunlight_hours": 5.5,
+    "sunlight_req_text": "5–6 hours direct sunlight",
+    "min_container_litres": 15.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Moderate; water deeply, allow slight drying between cycles.",
+    "hydrogel_synergy": "High. Sustains root moisture during warm summer flowering flushes.",
+    "preferred_medium": "Loamy soil + compost + bone meal / organic rock phosphate",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Perennial vine/shrub; famous heavy summer flower flushes",
+    "difficulty": "Intermediate",
+    "purposes": [
+      "aesthetics",
+      "fragrant",
+      "spiritual",
+      "traditional"
+    ],
+    "maintenance": "moderate",
+    "care_instructions": [
+      "Prune back shoots by 50% in January/February to trigger abundant summer bud development.",
+      "Defoliate older leaves before blooming cycle to focus energy on floral buds.",
+      "World-famous intoxicating evening fragrance."
+    ],
+    "companion_plants": [
+      "Hibiscus",
+      "Marigold"
+    ],
+    "potential_challenges": "Bud worm during humid monsoon periods; inspect unopened buds."
+  },
+  {
+    "id": "snake_plant",
+    "name": "Snake Plant / Mother-in-Law's Tongue",
+    "scientific_name": "Sansevieria trifasciata",
+    "tamil_name": "Pambu Chedi",
+    "category": "Ornamental",
+    "min_sunlight_hours": 1.0,
+    "sunlight_req_text": "1–4 hours indirect or low light (tolerates full shade)",
+    "min_container_litres": 5.0,
+    "recommended_pot_depth_inches": 8.0,
+    "water_need_level": "low",
+    "watering_needs": "Very low; water once every 7–14 days. Root rot occurs if overwatered.",
+    "hydrogel_synergy": "Low (Not required). Succulent rhizomes store ample water.",
+    "preferred_medium": "Porous, sandy, fast-draining succulent mix",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Slow, architectural vertical growth; virtually immortal",
+    "difficulty": "Beginner Friendly (Cannot Be Killed)",
+    "purposes": [
+      "aesthetics",
+      "air_purification",
+      "low_maintenance",
+      "shade_tolerant"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "NASA clean-air certified; absorbs benzene, formaldehyde, and xylene.",
+      "Releases oxygen at night (CAM photosynthesis), making it ideal near terrace sit-outs.",
+      "Water only when potting soil is bone dry."
+    ],
+    "companion_plants": [
+      "Aloe Vera",
+      "Money Plant"
+    ],
+    "potential_challenges": "Root rot from overwatering or poorly draining containers."
+  },
+  {
+    "id": "money_plant_pothos",
+    "name": "Golden Pothos / Money Plant",
+    "scientific_name": "Epipremnum aureum",
+    "tamil_name": "Money Plant",
+    "category": "Ornamental",
+    "min_sunlight_hours": 2.0,
+    "sunlight_req_text": "2–4 hours filtered or bright indirect light",
+    "min_container_litres": 5.0,
+    "recommended_pot_depth_inches": 6.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Water when top 1 inch feels dry; loves occasional foliar misting.",
+    "hydrogel_synergy": "Moderate. Keeps hanging baskets and moss poles hydrated longer.",
+    "preferred_medium": "Cocopeat + perlite + compost (lightweight)",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Fast-growing evergreen trailing climber",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "aesthetics",
+      "air_purification",
+      "shade_tolerant",
+      "hanging_baskets"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Can trail downward from hanging planters or climb upward on a coir moss pole.",
+      "Direct harsh midday terrace sun can scorch the glossy variegated foliage; keep in semi-shade.",
+      "Propagates effortlessly from simple single-node stem cuttings."
+    ],
+    "companion_plants": [
+      "Snake Plant",
+      "Syngonium"
+    ],
+    "potential_challenges": "Leaf scorching if placed in unshaded afternoon sun."
+  },
+  {
+    "id": "aloe_vera",
+    "name": "Aloe Vera",
+    "scientific_name": "Aloe barbadensis miller",
+    "tamil_name": "Sothu Katrazhai (சோற்றுக் கற்றாழை)",
+    "category": "Ornamental",
+    "min_sunlight_hours": 4.0,
+    "sunlight_req_text": "3–5 hours bright sunlight",
+    "min_container_litres": 8.0,
+    "recommended_pot_depth_inches": 8.0,
+    "water_need_level": "low",
+    "watering_needs": "Very low; thick gel-filled leaves store water for weeks.",
+    "hydrogel_synergy": "Low (Self-storing). Avoid hydrogel in aloe pots to prevent excess moisture.",
+    "preferred_medium": "Sandy, free-draining potting soil (sand : compost : soil 1:1:1)",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Perennial clumping succulent; harvest mature outer leaves",
+    "difficulty": "Beginner Friendly",
+    "purposes": [
+      "medicinal",
+      "cosmetics",
+      "air_purification",
+      "low_maintenance"
+    ],
+    "maintenance": "low",
+    "care_instructions": [
+      "Fabulous medicinal gel for skin burns, cooling drinks, and plant rooting hormone.",
+      "Produces offset 'pups' rapidly that can be potted into new containers.",
+      "Requires drainage holes in pot to prevent water buildup."
+    ],
+    "companion_plants": [
+      "Snake Plant"
+    ],
+    "potential_challenges": "Leaf softening and black root rot if waterlogged."
+  },
+  {
+    "id": "strawberry_container",
+    "name": "Container Strawberry",
+    "scientific_name": "Fragaria × ananassa",
+    "tamil_name": "Strawberry",
+    "category": "Small Fruits",
+    "min_sunlight_hours": 5.0,
+    "sunlight_req_text": "5–6 hours morning/filtered sunlight",
+    "min_container_litres": 8.0,
+    "recommended_pot_depth_inches": 8.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Shallow root system requires consistent moisture without soggy crown.",
+    "hydrogel_synergy": "Very High (+48% survival). Shallow roots dry out fast in terrace grow bags; hydrogel buffers root zone perfectly.",
+    "preferred_medium": "Cocopeat + compost + perlite (loose, acidic pH 5.8–6.2)",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "60–75 days from runner planting to sweet red berries",
+    "difficulty": "Intermediate",
+    "purposes": [
+      "household_consumption",
+      "small_fruits",
+      "kids_gardening",
+      "aesthetics"
+    ],
+    "maintenance": "moderate",
+    "care_instructions": [
+      "Plant with crown exactly level with potting mix surface; never bury crown.",
+      "Ideal for hanging baskets or vertical tiered planters on terrace.",
+      "Mulch with dry straw or dry coco-chips to keep developing berries off damp soil."
+    ],
+    "companion_plants": [
+      "Bush Beans",
+      "Spinach",
+      "Marigold"
+    ],
+    "potential_challenges": "Struggles when ambient temperatures exceed 34°C; best grown Oct–Feb in TN."
+  },
+  {
+    "id": "dwarf_papaya",
+    "name": "Dwarf Papaya (Red Lady)",
+    "scientific_name": "Carica papaya 'Red Lady 786'",
+    "tamil_name": "Kuttai Pappali (பப்பாளி)",
+    "category": "Small Fruits",
+    "min_sunlight_hours": 6.5,
+    "sunlight_req_text": "6–8 hours direct intense sunlight",
+    "min_container_litres": 30.0,
+    "recommended_pot_depth_inches": 18.0,
+    "water_need_level": "moderate_high",
+    "watering_needs": "High water uptake during rapid vegetative surge and heavy fruit setting.",
+    "hydrogel_synergy": "Exceptional. Prevents soil drying in large 35L containers on hot rooftops.",
+    "preferred_medium": "Rich loamy soil + coarse compost (50:50) with exceptional drainage",
+    "seasons_suitable": [
+      "summer",
+      "sw_monsoon",
+      "post_monsoon",
+      "winter"
+    ],
+    "unsuitable_seasons": [],
+    "growth_timeline": "Flowers at 2.5 feet height; harvests in 8–9 months",
+    "difficulty": "Experienced",
+    "purposes": [
+      "household_consumption",
+      "small_fruits",
+      "high_yield"
+    ],
+    "maintenance": "moderate_to_high",
+    "care_instructions": [
+      "Requires large 30L–50L drum or heavy-duty grow bag with multiple drainage holes.",
+      "Heavy feeder: topdress with 2 kg compost + neem cake monthly.",
+      "Dwarf bisexual variety that fruits at low height, safe for windy terrace gardens."
+    ],
+    "companion_plants": [
+      "Marigold",
+      "Sweet Basil"
+    ],
+    "potential_challenges": "Extremely sensitive to waterlogging (stem collar rot); keep base well drained."
+  },
+  {
+    "id": "capsicum_bell_pepper",
+    "name": "Capsicum / Bell Pepper",
+    "scientific_name": "Capsicum annuum var. grossum",
+    "tamil_name": "Kuda Milagai (குடை மிளகாய்)",
+    "category": "Vegetables",
+    "min_sunlight_hours": 5.5,
+    "sunlight_req_text": "5–7 hours direct sunlight",
+    "min_container_litres": 15.0,
+    "recommended_pot_depth_inches": 12.0,
+    "water_need_level": "moderate",
+    "watering_needs": "Consistent root moisture; soil moisture stress causes fruit drop or thin walls.",
+    "hydrogel_synergy": "Very High (+38% water efficiency). Hydrogel maintains steady turgor pressure vital for thick, crunchy pericarp fruit walls.",
+    "preferred_medium": "Cocopeat + Vermicompost + Perlite (50:30:20 ratio)",
+    "seasons_suitable": [
+      "post_monsoon",
+      "winter",
+      "sw_monsoon"
+    ],
+    "unsuitable_seasons": [
+      "peak_summer"
+    ],
+    "growth_timeline": "70–85 days to harvest; continues yielding for 3–4 months",
+    "difficulty": "Intermediate",
+    "purposes": [
+      "household_consumption",
+      "culinary",
+      "aesthetics"
+    ],
+    "maintenance": "moderate",
+    "care_instructions": [
+      "Support main stem with a light bamboo stake to prevent fruit weight toppling.",
+      "Feed with liquid vermicompost or seaweed extract every 12 days during flowering.",
+      "Pinch the first central blossom to encourage heavy lateral branching and higher total yield."
+    ],
+    "companion_plants": [
+      "African Marigold",
+      "Sweet / Italian Basil",
+      "Indian Spinach / Palak"
+    ],
+    "potential_challenges": "Prone to thrips and leaf curl during hot dry spells; inspect leaf undersides weekly."
+  }
+]

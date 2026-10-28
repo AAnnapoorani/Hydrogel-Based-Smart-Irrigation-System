@@ -12,24 +12,26 @@ interface StatCardProps {
 export default function StatCard({ label, value, sub, trend, trendUp = true, delay = 0 }: StatCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.35 }}
-      className="bg-white rounded-2xl border border-green-100 p-5 shadow-sm"
+      transition={{ delay, duration: 0.3 }}
+      className="bg-white rounded-xl border border-slate-200/80 p-5 shadow-soft transition-all hover:border-slate-300"
     >
-      <p className="text-xs font-semibold uppercase tracking-widest text-green-400 mb-2">
+      <p className="text-xs font-medium uppercase tracking-wider text-slate-500 mb-2">
         {label}
       </p>
-      <p className="text-3xl font-semibold text-green-900 leading-none mb-1">
+      <p className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-none mb-1">
         {value}
       </p>
       {sub && (
-        <p className="text-xs text-green-500 mt-1">{sub}</p>
+        <p className="text-xs text-slate-500 mt-1.5 leading-normal">{sub}</p>
       )}
       {trend && (
         <span
-          className={`inline-block mt-2 text-xs font-semibold px-2.5 py-0.5 rounded-full ${
-            trendUp ? "bg-green-50 text-green-700" : "bg-teal-50 text-teal-700"
+          className={`inline-flex items-center gap-1 mt-2.5 text-xs font-medium px-2 py-0.5 rounded-full border ${
+            trendUp
+              ? "bg-emerald-50 text-emerald-700 border-emerald-200/60"
+              : "bg-slate-100 text-slate-700 border-slate-200"
           }`}
         >
           {trend}

@@ -1,0 +1,108 @@
+{
+  "dataset": "Development/Simulation (Physics-Informed with Hydrogel)",
+  "evaluation_date": "2026-10-24T16:13:19.604607+00:00",
+  "train_samples": 1503,
+  "test_samples": 323,
+  "target_horizons": [
+    "1h",
+    "3h",
+    "6h"
+  ],
+  "best_model": "Random Forest",
+  "models": [
+    {
+      "name": "Linear Regression",
+      "mae": 2.657,
+      "rmse": 3.778,
+      "r2": 0.1906,
+      "horizons": {
+        "1h": {
+          "mae": 1.827,
+          "rmse": 3.36,
+          "r2": 0.3527
+        },
+        "3h": {
+          "mae": 3.046,
+          "rmse": 3.971,
+          "r2": 0.1017
+        },
+        "6h": {
+          "mae": 3.1,
+          "rmse": 3.971,
+          "r2": 0.1173
+        }
+      }
+    },
+    {
+      "name": "Random Forest",
+      "mae": 1.369,
+      "rmse": 2.518,
+      "r2": 0.6416,
+      "horizons": {
+        "1h": {
+          "mae": 0.741,
+          "rmse": 1.713,
+          "r2": 0.8317
+        },
+        "3h": {
+          "mae": 1.373,
+          "rmse": 2.491,
+          "r2": 0.6467
+        },
+        "6h": {
+          "mae": 1.994,
+          "rmse": 3.144,
+          "r2": 0.4465
+        }
+      }
+    },
+    {
+      "name": "Gradient Boosting",
+      "mae": 1.555,
+      "rmse": 2.704,
+      "r2": 0.5866,
+      "horizons": {
+        "1h": {
+          "mae": 0.981,
+          "rmse": 1.967,
+          "r2": 0.7781
+        },
+        "3h": {
+          "mae": 1.59,
+          "rmse": 2.738,
+          "r2": 0.5731
+        },
+        "6h": {
+          "mae": 2.094,
+          "rmse": 3.251,
+          "r2": 0.4085
+        }
+      }
+    }
+  ],
+  "feature_importance": {
+    "soil_moisture": 0.4711,
+    "hours_since_irrigation": 0.0862,
+    "moisture_lag_1": 0.0525,
+    "humidity": 0.0467,
+    "wind_speed": 0.0341,
+    "moisture_rolling_std_6": 0.0332,
+    "humidity_lag_1": 0.0303,
+    "moisture_rolling_mean_3": 0.028,
+    "hour_cos": 0.0266,
+    "moisture_lag_2": 0.0253,
+    "moisture_lag_3": 0.0241,
+    "moisture_rolling_mean_6": 0.0231,
+    "evap_stress_index": 0.0197,
+    "moisture_rate_of_change": 0.0193,
+    "hour_sin": 0.0181,
+    "temp_lag_1": 0.0162,
+    "temperature": 0.0158,
+    "hydrogel_dosage": 0.0146,
+    "hydrogel_present": 0.0144,
+    "rainfall": 0.0006,
+    "soil_loam": 0.0,
+    "soil_clay": 0.0,
+    "soil_sandy": 0.0
+  }
+}

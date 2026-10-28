@@ -1,0 +1,667 @@
+{
+  "metadata": {
+    "title": "Phase 3.4 Controlled Experiment: Non-Solanaceae Foliage & Open-Set OOD Screening",
+    "timestamp": "2026-10-26T17:56:19Z",
+    "evaluation_samples_total": 1971,
+    "ip102_checkpoint": "best_checkpoint.pt",
+    "disease_model": "model_scripted.pt",
+    "device": "CPU"
+  },
+  "configurations": {
+    "Baseline (Phase 3.3 C1)": {
+      "configuration": "Baseline (Phase 3.3 C1)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45,
+        "use_energy_ood": false,
+        "use_mls_ood": false,
+        "calibrate_thrips": false
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_solanaceae": 300,
+        "healthy_non_solanaceae": 250,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1971
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 412,
+        "total_accepted_recall": 0.4039,
+        "total_accepted_recall_ci95": [
+          0.3742,
+          0.4343
+        ],
+        "candidate_accepted_pests": 264,
+        "candidate_accepted_recall": 0.2588,
+        "candidate_accepted_recall_ci95": [
+          0.2329,
+          0.2866
+        ],
+        "unsupported_accepted_pests": 148
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_solanaceae_fp": 21,
+        "healthy_solanaceae_total": 300,
+        "healthy_solanaceae_fpr": 0.07,
+        "healthy_solanaceae_fpr_ci95": [
+          0.0462,
+          0.1046
+        ],
+        "healthy_non_solanaceae_fp": 30,
+        "healthy_non_solanaceae_total": 250,
+        "healthy_non_solanaceae_fpr": 0.12,
+        "healthy_non_solanaceae_fpr_ci95": [
+          0.0854,
+          0.1661
+        ],
+        "disease_fp": 17,
+        "disease_total": 350,
+        "disease_fpr": 0.0486,
+        "disease_fpr_ci95": [
+          0.0305,
+          0.0764
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 68,
+        "overall_negatives": 951,
+        "overall_fpr": 0.0715,
+        "overall_fpr_ci95": [
+          0.0568,
+          0.0897
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.8583,
+        "def1_all_accepted_ci95": [
+          0.8243,
+          0.8867
+        ],
+        "def1_numerator_pests": 412,
+        "def1_denominator_total": 480,
+        "def2_candidate_only_precision": 0.8,
+        "def2_candidate_only_ci95": [
+          0.7535,
+          0.8396
+        ],
+        "def2_numerator_candidates": 264,
+        "def2_denominator_total": 330
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 113,
+        "validated_pct": 11.08,
+        "candidate_count": 151,
+        "candidate_pct": 14.8,
+        "unsupported_count": 148,
+        "unsupported_pct": 14.51
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "macro_f1_score": 0.2757
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 217,
+        "accepted_total": 412,
+        "species_accuracy_among_accepted": 0.5267,
+        "species_accuracy_ci95": [
+          0.4785,
+          0.5744
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 608,
+        "pest_inconclusive_rate": 0.5961,
+        "healthy_solanaceae_inconclusive_rate": 0.93,
+        "healthy_non_solanaceae_inconclusive_rate": 0.88,
+        "disease_inconclusive_rate": 0.9514,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "suppression_telemetry": {
+        "genuine_pests_suppressed_ood": 0,
+        "genuine_pests_suppressed_disease": 22,
+        "healthy_sol_suppressed_ood": 0,
+        "healthy_non_sol_suppressed_ood": 0,
+        "disease_fp_suppressed_ood": 0,
+        "disease_fp_suppressed_disease": 20
+      },
+      "binary_confusion_matrix": {
+        "TP": 412,
+        "FN": 608,
+        "FP": 68,
+        "TN": 883
+      }
+    },
+    "Strategy D1 (Energy OOD: tau_E=2.0)": {
+      "configuration": "Strategy D1 (Energy OOD: tau_E=2.0)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45,
+        "use_energy_ood": true,
+        "tau_energy": 2.0,
+        "use_mls_ood": false,
+        "calibrate_thrips": false
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_solanaceae": 300,
+        "healthy_non_solanaceae": 250,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1971
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 357,
+        "total_accepted_recall": 0.35,
+        "total_accepted_recall_ci95": [
+          0.3213,
+          0.3798
+        ],
+        "candidate_accepted_pests": 223,
+        "candidate_accepted_recall": 0.2186,
+        "candidate_accepted_recall_ci95": [
+          0.1943,
+          0.245
+        ],
+        "unsupported_accepted_pests": 134
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_solanaceae_fp": 5,
+        "healthy_solanaceae_total": 300,
+        "healthy_solanaceae_fpr": 0.0167,
+        "healthy_solanaceae_fpr_ci95": [
+          0.0071,
+          0.0384
+        ],
+        "healthy_non_solanaceae_fp": 24,
+        "healthy_non_solanaceae_total": 250,
+        "healthy_non_solanaceae_fpr": 0.096,
+        "healthy_non_solanaceae_fpr_ci95": [
+          0.0654,
+          0.1389
+        ],
+        "disease_fp": 13,
+        "disease_total": 350,
+        "disease_fpr": 0.0371,
+        "disease_fpr_ci95": [
+          0.0218,
+          0.0625
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 42,
+        "overall_negatives": 951,
+        "overall_fpr": 0.0442,
+        "overall_fpr_ci95": [
+          0.0328,
+          0.0592
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.8947,
+        "def1_all_accepted_ci95": [
+          0.8608,
+          0.9212
+        ],
+        "def1_numerator_pests": 357,
+        "def1_denominator_total": 399,
+        "def2_candidate_only_precision": 0.8479,
+        "def2_candidate_only_ci95": [
+          0.7995,
+          0.8863
+        ],
+        "def2_numerator_candidates": 223,
+        "def2_denominator_total": 263
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 96,
+        "validated_pct": 9.41,
+        "candidate_count": 127,
+        "candidate_pct": 12.45,
+        "unsupported_count": 134,
+        "unsupported_pct": 13.14
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "macro_f1_score": 0.2525
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 194,
+        "accepted_total": 357,
+        "species_accuracy_among_accepted": 0.5434,
+        "species_accuracy_ci95": [
+          0.4916,
+          0.5944
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 663,
+        "pest_inconclusive_rate": 0.65,
+        "healthy_solanaceae_inconclusive_rate": 0.9833,
+        "healthy_non_solanaceae_inconclusive_rate": 0.904,
+        "disease_inconclusive_rate": 0.9629,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "suppression_telemetry": {
+        "genuine_pests_suppressed_ood": 325,
+        "genuine_pests_suppressed_disease": 17,
+        "healthy_sol_suppressed_ood": 143,
+        "healthy_non_sol_suppressed_ood": 41,
+        "disease_fp_suppressed_ood": 157,
+        "disease_fp_suppressed_disease": 8
+      },
+      "binary_confusion_matrix": {
+        "TP": 357,
+        "FN": 663,
+        "FP": 42,
+        "TN": 909
+      }
+    },
+    "Strategy D2 (MLS OOD: tau_mls=0.8)": {
+      "configuration": "Strategy D2 (MLS OOD: tau_mls=0.8)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45,
+        "use_energy_ood": false,
+        "use_mls_ood": true,
+        "tau_mls": 0.8,
+        "calibrate_thrips": false
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_solanaceae": 300,
+        "healthy_non_solanaceae": 250,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1971
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 378,
+        "total_accepted_recall": 0.3706,
+        "total_accepted_recall_ci95": [
+          0.3415,
+          0.4007
+        ],
+        "candidate_accepted_pests": 238,
+        "candidate_accepted_recall": 0.2333,
+        "candidate_accepted_recall_ci95": [
+          0.2084,
+          0.2603
+        ],
+        "unsupported_accepted_pests": 140
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_solanaceae_fp": 9,
+        "healthy_solanaceae_total": 300,
+        "healthy_solanaceae_fpr": 0.03,
+        "healthy_solanaceae_fpr_ci95": [
+          0.0159,
+          0.056
+        ],
+        "healthy_non_solanaceae_fp": 27,
+        "healthy_non_solanaceae_total": 250,
+        "healthy_non_solanaceae_fpr": 0.108,
+        "healthy_non_solanaceae_fpr_ci95": [
+          0.0753,
+          0.1526
+        ],
+        "disease_fp": 15,
+        "disease_total": 350,
+        "disease_fpr": 0.0429,
+        "disease_fpr_ci95": [
+          0.0261,
+          0.0695
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 51,
+        "overall_negatives": 951,
+        "overall_fpr": 0.0536,
+        "overall_fpr_ci95": [
+          0.041,
+          0.0698
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.8811,
+        "def1_all_accepted_ci95": [
+          0.8471,
+          0.9084
+        ],
+        "def1_numerator_pests": 378,
+        "def1_denominator_total": 429,
+        "def2_candidate_only_precision": 0.8293,
+        "def2_candidate_only_ci95": [
+          0.7815,
+          0.8684
+        ],
+        "def2_numerator_candidates": 238,
+        "def2_denominator_total": 287
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 98,
+        "validated_pct": 9.61,
+        "candidate_count": 140,
+        "candidate_pct": 13.73,
+        "unsupported_count": 140,
+        "unsupported_pct": 13.73
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "macro_f1_score": 0.2634
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 204,
+        "accepted_total": 378,
+        "species_accuracy_among_accepted": 0.5397,
+        "species_accuracy_ci95": [
+          0.4893,
+          0.5893
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 642,
+        "pest_inconclusive_rate": 0.6294,
+        "healthy_solanaceae_inconclusive_rate": 0.97,
+        "healthy_non_solanaceae_inconclusive_rate": 0.892,
+        "disease_inconclusive_rate": 0.9571,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "suppression_telemetry": {
+        "genuine_pests_suppressed_ood": 486,
+        "genuine_pests_suppressed_disease": 18,
+        "healthy_sol_suppressed_ood": 268,
+        "healthy_non_sol_suppressed_ood": 144,
+        "disease_fp_suppressed_ood": 283,
+        "disease_fp_suppressed_disease": 13
+      },
+      "binary_confusion_matrix": {
+        "TP": 378,
+        "FN": 642,
+        "FP": 51,
+        "TN": 900
+      }
+    },
+    "Strategy D3 (Calibrated Thrips: tau=0.45)": {
+      "configuration": "Strategy D3 (Calibrated Thrips: tau=0.45)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45,
+        "use_energy_ood": false,
+        "use_mls_ood": false,
+        "calibrate_thrips": true,
+        "tau_thrips": 0.45
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_solanaceae": 300,
+        "healthy_non_solanaceae": 250,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1971
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 408,
+        "total_accepted_recall": 0.4,
+        "total_accepted_recall_ci95": [
+          0.3704,
+          0.4304
+        ],
+        "candidate_accepted_pests": 260,
+        "candidate_accepted_recall": 0.2549,
+        "candidate_accepted_recall_ci95": [
+          0.2291,
+          0.2825
+        ],
+        "unsupported_accepted_pests": 148
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_solanaceae_fp": 5,
+        "healthy_solanaceae_total": 300,
+        "healthy_solanaceae_fpr": 0.0167,
+        "healthy_solanaceae_fpr_ci95": [
+          0.0071,
+          0.0384
+        ],
+        "healthy_non_solanaceae_fp": 20,
+        "healthy_non_solanaceae_total": 250,
+        "healthy_non_solanaceae_fpr": 0.08,
+        "healthy_non_solanaceae_fpr_ci95": [
+          0.0524,
+          0.1203
+        ],
+        "disease_fp": 17,
+        "disease_total": 350,
+        "disease_fpr": 0.0486,
+        "disease_fpr_ci95": [
+          0.0305,
+          0.0764
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 42,
+        "overall_negatives": 951,
+        "overall_fpr": 0.0442,
+        "overall_fpr_ci95": [
+          0.0328,
+          0.0592
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9067,
+        "def1_all_accepted_ci95": [
+          0.8762,
+          0.9302
+        ],
+        "def1_numerator_pests": 408,
+        "def1_denominator_total": 450,
+        "def2_candidate_only_precision": 0.8667,
+        "def2_candidate_only_ci95": [
+          0.8235,
+          0.9005
+        ],
+        "def2_numerator_candidates": 260,
+        "def2_denominator_total": 300
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 109,
+        "validated_pct": 10.69,
+        "candidate_count": 151,
+        "candidate_pct": 14.8,
+        "unsupported_count": 148,
+        "unsupported_pct": 14.51
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "macro_f1_score": 0.2744
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 216,
+        "accepted_total": 408,
+        "species_accuracy_among_accepted": 0.5294,
+        "species_accuracy_ci95": [
+          0.4809,
+          0.5773
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 612,
+        "pest_inconclusive_rate": 0.6,
+        "healthy_solanaceae_inconclusive_rate": 0.9833,
+        "healthy_non_solanaceae_inconclusive_rate": 0.92,
+        "disease_inconclusive_rate": 0.9514,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "suppression_telemetry": {
+        "genuine_pests_suppressed_ood": 0,
+        "genuine_pests_suppressed_disease": 22,
+        "healthy_sol_suppressed_ood": 0,
+        "healthy_non_sol_suppressed_ood": 0,
+        "disease_fp_suppressed_ood": 0,
+        "disease_fp_suppressed_disease": 17
+      },
+      "binary_confusion_matrix": {
+        "TP": 408,
+        "FN": 612,
+        "FP": 42,
+        "TN": 909
+      }
+    },
+    "Strategy D4 (Multi-Stage Integrated Architecture)": {
+      "configuration": "Strategy D4 (Multi-Stage Integrated Architecture)",
+      "rules": {
+        "tau_val": 0.25,
+        "tau_cand": 0.35,
+        "tau_unsup": 0.25,
+        "disease_gating": true,
+        "tau_dis": 0.75,
+        "tau_suppress_pest": 0.45,
+        "use_energy_ood": true,
+        "tau_energy": 2.0,
+        "use_mls_ood": false,
+        "calibrate_thrips": true,
+        "tau_thrips": 0.45
+      },
+      "sample_counts": {
+        "genuine_pests": 1020,
+        "healthy_solanaceae": 300,
+        "healthy_non_solanaceae": 250,
+        "plant_disease": 350,
+        "non_plant": 51,
+        "total_samples": 1971
+      },
+      "metric_a_acceptance_recall": {
+        "total_accepted_pests": 354,
+        "total_accepted_recall": 0.3471,
+        "total_accepted_recall_ci95": [
+          0.3185,
+          0.3768
+        ],
+        "candidate_accepted_pests": 220,
+        "candidate_accepted_recall": 0.2157,
+        "candidate_accepted_recall_ci95": [
+          0.1915,
+          0.242
+        ],
+        "unsupported_accepted_pests": 134
+      },
+      "metric_b_false_positive_rates": {
+        "healthy_solanaceae_fp": 2,
+        "healthy_solanaceae_total": 300,
+        "healthy_solanaceae_fpr": 0.0067,
+        "healthy_solanaceae_fpr_ci95": [
+          0.0018,
+          0.024
+        ],
+        "healthy_non_solanaceae_fp": 16,
+        "healthy_non_solanaceae_total": 250,
+        "healthy_non_solanaceae_fpr": 0.064,
+        "healthy_non_solanaceae_fpr_ci95": [
+          0.0398,
+          0.1014
+        ],
+        "disease_fp": 13,
+        "disease_total": 350,
+        "disease_fpr": 0.0371,
+        "disease_fpr_ci95": [
+          0.0218,
+          0.0625
+        ],
+        "non_plant_fp": 0,
+        "non_plant_total": 51,
+        "non_plant_fpr": 0.0,
+        "overall_fp": 31,
+        "overall_negatives": 951,
+        "overall_fpr": 0.0326,
+        "overall_fpr_ci95": [
+          0.0231,
+          0.0459
+        ]
+      },
+      "metric_c_pest_presence_precision": {
+        "def1_all_accepted_precision": 0.9195,
+        "def1_all_accepted_ci95": [
+          0.888,
+          0.9427
+        ],
+        "def1_numerator_pests": 354,
+        "def1_denominator_total": 385,
+        "def2_candidate_only_precision": 0.8835,
+        "def2_candidate_only_ci95": [
+          0.8377,
+          0.9177
+        ],
+        "def2_numerator_candidates": 220,
+        "def2_denominator_total": 249
+      },
+      "metric_d_supported_coverage": {
+        "validated_count": 93,
+        "validated_pct": 9.12,
+        "candidate_count": 127,
+        "candidate_pct": 12.45,
+        "unsupported_count": 134,
+        "unsupported_pct": 13.14
+      },
+      "metric_e_species_level_accuracy": {
+        "top1_overall_correct": 313,
+        "top1_overall_accuracy": 0.3069,
+        "macro_f1_score": 0.2525
+      },
+      "metric_f_accepted_species_correctness": {
+        "correct_and_accepted": 194,
+        "accepted_total": 354,
+        "species_accuracy_among_accepted": 0.548,
+        "species_accuracy_ci95": [
+          0.4959,
+          0.5991
+        ]
+      },
+      "metric_g_abstention_rates": {
+        "pest_inconclusive_count": 666,
+        "pest_inconclusive_rate": 0.6529,
+        "healthy_solanaceae_inconclusive_rate": 0.9933,
+        "healthy_non_solanaceae_inconclusive_rate": 0.936,
+        "disease_inconclusive_rate": 0.9629,
+        "non_plant_inconclusive_rate": 1.0
+      },
+      "suppression_telemetry": {
+        "genuine_pests_suppressed_ood": 325,
+        "genuine_pests_suppressed_disease": 17,
+        "healthy_sol_suppressed_ood": 143,
+        "healthy_non_sol_suppressed_ood": 41,
+        "disease_fp_suppressed_ood": 157,
+        "disease_fp_suppressed_disease": 7
+      },
+      "binary_confusion_matrix": {
+        "TP": 354,
+        "FN": 666,
+        "FP": 31,
+        "TN": 920
+      }
+    }
+  }
+}

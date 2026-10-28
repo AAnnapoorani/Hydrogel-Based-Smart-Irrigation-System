@@ -1,0 +1,178 @@
+{
+  "known_pests": {
+    "group_name": "Known Pest Images (IP102 Test)",
+    "sample_count": 1020,
+    "mean_score": 0.3188,
+    "median_score": 0.2389,
+    "min_score": 0.0528,
+    "max_score": 0.9946,
+    "std_score": 0.2253,
+    "engine_statuses": {
+      "classified_candidate": 321,
+      "unsupported_class": 159,
+      "inconclusive": 540,
+      "other": 0
+    },
+    "service_statuses": {
+      "classified_candidate": 321,
+      "unsupported_class": 159,
+      "inconclusive": 540
+    },
+    "above_threshold_count": 480,
+    "above_threshold_pct": 47.06,
+    "top_predicted_classes": [
+      [
+        "Phyllocnistis citrella Stainton",
+        23
+      ],
+      [
+        "white margined moth",
+        21
+      ],
+      [
+        "Pseudococcus comstocki Kuwana",
+        21
+      ],
+      [
+        "meadow moth",
+        19
+      ],
+      [
+        "Erythroneura apicalis",
+        19
+      ]
+    ]
+  },
+  "healthy_foliage": {
+    "group_name": "Healthy Foliage (PlantVillage)",
+    "sample_count": 300,
+    "mean_score": 0.1635,
+    "median_score": 0.1461,
+    "min_score": 0.046,
+    "max_score": 0.5215,
+    "std_score": 0.08,
+    "engine_statuses": {
+      "classified_candidate": 35,
+      "unsupported_class": 0,
+      "inconclusive": 265,
+      "other": 0
+    },
+    "service_statuses": {
+      "classified_candidate": 35,
+      "unsupported_class": 0,
+      "inconclusive": 265
+    },
+    "above_threshold_count": 35,
+    "above_threshold_pct": 11.67,
+    "top_predicted_classes": [
+      [
+        "Scirtothrips dorsalis Hood",
+        81
+      ],
+      [
+        "Salurnis marginella Guerr",
+        44
+      ],
+      [
+        "alfalfa weevil",
+        40
+      ],
+      [
+        "Brevipoalpus lewisi McGregor",
+        40
+      ],
+      [
+        "meadow moth",
+        31
+      ]
+    ]
+  },
+  "plant_disease": {
+    "group_name": "Plant Disease Images (PlantVillage)",
+    "sample_count": 350,
+    "mean_score": 0.1938,
+    "median_score": 0.1527,
+    "min_score": 0.0476,
+    "max_score": 0.8377,
+    "std_score": 0.123,
+    "engine_statuses": {
+      "classified_candidate": 71,
+      "unsupported_class": 2,
+      "inconclusive": 277,
+      "other": 0
+    },
+    "service_statuses": {
+      "classified_candidate": 71,
+      "unsupported_class": 2,
+      "inconclusive": 277
+    },
+    "above_threshold_count": 73,
+    "above_threshold_pct": 20.86,
+    "top_predicted_classes": [
+      [
+        "alfalfa weevil",
+        124
+      ],
+      [
+        "Brevipoalpus lewisi McGregor",
+        33
+      ],
+      [
+        "Colomerus vitis",
+        31
+      ],
+      [
+        "meadow moth",
+        29
+      ],
+      [
+        "Salurnis marginella Guerr",
+        28
+      ]
+    ]
+  },
+  "non_plant": {
+    "group_name": "Non-Plant Images",
+    "sample_count": 51,
+    "mean_score": 0.0543,
+    "median_score": 0.0546,
+    "min_score": 0.0226,
+    "max_score": 0.105,
+    "std_score": 0.0206,
+    "engine_statuses": {
+      "classified_candidate": 0,
+      "unsupported_class": 0,
+      "inconclusive": 51,
+      "other": 0
+    },
+    "service_statuses": {
+      "classified_candidate": 0,
+      "unsupported_class": 0,
+      "inconclusive": 51
+    },
+    "above_threshold_count": 0,
+    "above_threshold_pct": 0.0,
+    "top_predicted_classes": [
+      [
+        "red spider",
+        30
+      ],
+      [
+        "wheat sawfly",
+        10
+      ],
+      [
+        "penthaleus major",
+        6
+      ],
+      [
+        "mole cricket",
+        2
+      ],
+      [
+        "Potosiabre vitarsis",
+        1
+      ]
+    ]
+  }
+}

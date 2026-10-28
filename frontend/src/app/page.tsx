@@ -1,30 +1,28 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { api } from "@/lib/api";
+import { Droplets, Sprout, ShieldCheck, ArrowRight, Check } from "lucide-react";
 
 const features = [
   {
-    icon: "🌱",
-    title: "Soil Fertility Classification",
-    desc: "Analyze N-P-K levels, pH, and organic carbon to classify your soil as High, Medium, or Low fertility with actionable remediation steps.",
-    href: "/soil",
-    color: "bg-green-50 border-green-100",
+    icon: <Sprout className="w-5 h-5 text-emerald-700" />,
+    title: "Terrace Garden Hub",
+    desc: "All-in-one container garden management: track active grow bags, discover sunlight-matched container crops, and consult the 24-species botanical catalog.",
+    href: "/plants",
   },
   {
-    icon: "🌾",
-    title: "Crop Recommendation Engine",
-    desc: "Data-driven crop matching tailored to Tamil Nadu's climate. Get ranked suggestions from Rice, Sugarcane, Cotton, Groundnut & more.",
-    href: "/soil",
-    color: "bg-blue-50 border-blue-100",
+    icon: <ShieldCheck className="w-5 h-5 text-emerald-700" />,
+    title: "Plant Health AI Diagnostics",
+    desc: "Computer vision foliar disease screening and insect pest identification. Instant organic neem and biological remediation protocols.",
+    href: "/diagnosis",
   },
   {
-    icon: "💧",
-    title: "Irrigation Optimization",
-    desc: "Calculate precise water requirements using the SMD formula. Save up to 35% water while maintaining optimal soil moisture levels.",
+    icon: <Droplets className="w-5 h-5 text-emerald-700" />,
+    title: "Hydrogel Irrigation Optimization",
+    desc: "Calculate precise water requirements with predictive micro-drip control. Save 30.9% to 48.2% water while maintaining optimal container root hydration.",
     href: "/irrigation",
-    color: "bg-teal-50 border-teal-100",
   },
 ];
 
@@ -37,14 +35,14 @@ const sdgs = [
 ];
 
 const stats = [
-  { value: "35%", label: "Average water savings" },
-  { value: "8",   label: "Crops recommended" },
-  { value: "4",   label: "Soil parameters analysed" },
-  { value: "∞",   label: "Historical reports" },
+  { value: "30.9%", label: "Water saved vs SMD (48.2% vs fixed)" },
+  { value: "14",   label: "Terrace crops recommended" },
+  { value: "24",   label: "Curated container species" },
+  { value: "100%", label: "Automated logs" },
 ];
 
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
+const item = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
 
 export default function LandingPage() {
   const [email, setEmail] = useState("");
@@ -56,7 +54,6 @@ export default function LandingPage() {
     if (!email.includes("@")) return;
     setLoading(true);
     try {
-      // In production, POST to /subscribe endpoint
       await new Promise((r) => setTimeout(r, 600));
       setSubmitted(true);
       setEmail("");
@@ -68,36 +65,45 @@ export default function LandingPage() {
   return (
     <main className="overflow-x-hidden">
       {/* ── HERO ── */}
-      <section className="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <span className="inline-flex items-center gap-2 bg-green-50 text-green-700 border border-green-100 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-14 text-center">
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+          {/* Logo Brand Crest */}
+          <div className="flex justify-center mb-5">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-white border-2 border-emerald-600/30 shadow-card flex items-center justify-center hover:scale-105 transition-transform">
+              <img
+                src="/logo.png"
+                alt="IrrigateWise Emblem Logo"
+                className="w-full h-full object-contain rounded-full"
+              />
+            </div>
+          </div>
+
+          <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200/80 px-3.5 py-1 rounded-full text-xs font-medium mb-6 shadow-soft">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
             Erumaiyur Village, Tambaram, Tamil Nadu
           </span>
 
-          <h1
-            className="text-5xl md:text-6xl font-bold leading-tight text-green-950 mb-5"
-            style={{ fontFamily: "'Fraunces', serif" }}
-          >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-slate-900 mb-5 tracking-tight font-serif">
             Smart Irrigation for<br />
-            <em className="not-italic text-green-500">Smarter Harvests</em>
+            <span className="text-emerald-700">Smarter Harvests</span>
           </h1>
 
-          <p className="text-lg text-green-700 max-w-lg mx-auto mb-8 leading-relaxed">
-            AI-powered soil analysis, crop recommendation & water optimization — built specifically for
-            Tamil Nadu's farmers.
+          <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed">
+            AI-powered soil analysis, crop recommendation & water optimization — engineered specifically for
+            Tamil Nadu&apos;s agricultural microclimates.
           </p>
 
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/soil"
-              className="bg-green-700 hover:bg-green-900 text-white px-7 py-3.5 rounded-xl font-semibold text-base transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-900/20"
+              className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg font-medium text-sm shadow-soft transition-colors"
             >
               Start Soil Analysis
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/dashboard"
-              className="bg-white text-green-700 border-2 border-green-200 hover:border-green-400 hover:bg-green-50 px-7 py-3.5 rounded-xl font-semibold text-base transition-all"
+              className="inline-flex items-center bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 px-6 py-3 rounded-lg font-medium text-sm transition-colors shadow-soft"
             >
               View Dashboard
             </Link>
@@ -106,34 +112,33 @@ export default function LandingPage() {
       </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-white border-y border-green-100 py-8">
-        <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <section className="bg-white border-y border-slate-200/80 py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + i * 0.07 }}
+              transition={{ delay: 0.15 + i * 0.05 }}
             >
-              <p className="text-3xl font-bold text-green-700 mb-1" style={{ fontFamily: "'Fraunces', serif" }}>
+              <p className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1 tracking-tight">
                 {s.value}
               </p>
-              <p className="text-sm text-green-500">{s.label}</p>
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">{s.label}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── FEATURES ── */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
         <div className="text-center mb-12">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-green-950 mb-3"
-            style={{ fontFamily: "'Fraunces', serif" }}
-          >
-            Everything You Need to Farm Smarter
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
+            Integrated Precision Agriculture Modules
           </h2>
-          <p className="text-green-600 text-base">Three powerful modules working together for optimal yield and water conservation.</p>
+          <p className="text-slate-600 text-sm max-w-lg mx-auto">
+            Three intelligent components working together to conserve water and maximize crop yield.
+          </p>
         </div>
 
         <motion.div
@@ -145,13 +150,20 @@ export default function LandingPage() {
         >
           {features.map((f) => (
             <motion.div key={f.title} variants={item}>
-              <Link href={f.href} className="block h-full">
-                <div className={`h-full border rounded-2xl p-7 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/10 cursor-pointer bg-white`}>
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 ${f.color} border`}>
+              <Link href={f.href} className="block h-full group">
+                <div className="h-full bg-white border border-slate-200/80 rounded-xl p-6 shadow-soft transition-all hover:border-slate-300 hover:shadow-card flex flex-col">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200/60 flex items-center justify-center mb-4 transition-colors group-hover:bg-emerald-100">
                     {f.icon}
                   </div>
-                  <h3 className="text-base font-semibold text-green-900 mb-2">{f.title}</h3>
-                  <p className="text-sm text-green-600 leading-relaxed">{f.desc}</p>
+                  <h3 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-emerald-800 transition-colors">
+                    {f.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed flex-1">
+                    {f.desc}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 mt-4">
+                    Explore module →
+                  </span>
                 </div>
               </Link>
             </motion.div>
@@ -160,29 +172,29 @@ export default function LandingPage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="bg-white border-y border-green-100 py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2
-            className="text-3xl font-bold text-green-950 text-center mb-12"
-            style={{ fontFamily: "'Fraunces', serif" }}
-          >
-            How It Works
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="bg-white border-y border-slate-200/80 py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
+              How the System Operates
+            </h2>
+            <p className="text-slate-600 text-sm">
+              Simple three-step precision loop from test sample to automated water delivery.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { step: "01", title: "Enter Soil Data", desc: "Input your N, P, K, pH, and organic carbon readings from a standard soil test kit." },
-              { step: "02", title: "Get Recommendations", desc: "Our engine classifies fertility, matches ideal crops, and computes exact irrigation requirements." },
-              { step: "03", title: "Schedule & Save", desc: "Schedule precision irrigation, track water savings, and export historical reports." },
+              { step: "01", title: "Enter Soil Readings", desc: "Input your N, P, K, pH, and organic carbon readings from a standard soil test kit or sensor probe." },
+              { step: "02", title: "Generate ML Decisions", desc: "Our models classify fertility, recommend suited crops, and compute exact irrigation requirements." },
+              { step: "03", title: "Automate & Conserve", desc: "Execute precision pulse actuation, monitor hydrogel retention, and review verifiable audit reports." },
             ].map((s) => (
-              <div key={s.step} className="flex flex-col items-start">
-                <span
-                  className="text-5xl font-bold text-green-100 mb-3 leading-none"
-                  style={{ fontFamily: "'Fraunces', serif" }}
-                >
-                  {s.step}
+              <div key={s.step} className="p-5 rounded-xl bg-slate-50 border border-slate-200/70 flex flex-col items-start">
+                <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-100/70 border border-emerald-200 px-2 py-0.5 rounded-md mb-3">
+                  Step {s.step}
                 </span>
-                <h3 className="text-base font-semibold text-green-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-green-600 leading-relaxed">{s.desc}</p>
+                <h3 className="text-sm font-semibold text-slate-900 mb-1.5">{s.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -190,26 +202,23 @@ export default function LandingPage() {
       </section>
 
       {/* ── SDG ── */}
-      <section
-        className="py-20 text-center"
-        style={{ background: "linear-gradient(135deg, #173404, #0f6e56)" }}
-      >
-        <div className="max-w-2xl mx-auto px-6">
-          <h2
-            className="text-3xl font-bold text-white mb-3"
-            style={{ fontFamily: "'Fraunces', serif" }}
-          >
+      <section className="py-16 text-center bg-slate-950 text-white border-b border-slate-800">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2 inline-block">
+            Sustainability & Impact
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
             Aligned with UN Sustainable Development Goals
           </h2>
-          <p className="text-green-200 mb-8 text-sm leading-relaxed">
-            IrrigateWise contributes directly to food security, clean water access, and responsible
-            consumption across Tamil Nadu's farming communities.
+          <p className="text-slate-300 mb-6 text-xs sm:text-sm leading-relaxed">
+            IrrigateWise contributes directly to food security, clean water preservation, and responsible
+            consumption across Tamil Nadu&apos;s agricultural regions.
           </p>
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-2.5 justify-center">
             {sdgs.map((sdg) => (
               <span
                 key={sdg}
-                className="bg-white/15 text-white border border-white/25 px-4 py-2 rounded-full text-sm font-medium"
+                className="bg-white/10 text-slate-200 border border-white/15 px-3 py-1.5 rounded-full text-xs font-medium"
               >
                 {sdg}
               </span>
@@ -219,60 +228,64 @@ export default function LandingPage() {
       </section>
 
       {/* ── EMAIL CAPTURE ── */}
-      <section className="max-w-lg mx-auto px-6 py-20 text-center">
-        <h2
-          className="text-3xl font-bold text-green-950 mb-2"
-          style={{ fontFamily: "'Fraunces', serif" }}
-        >
-          Stay in the Loop
+      <section className="max-w-md mx-auto px-4 sm:px-6 py-16 text-center">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1 tracking-tight">
+          Stay Informed on Seasonal Reports
         </h2>
-        <p className="text-green-600 text-sm mb-6">
-          Get seasonal alerts, soil reports, and irrigation schedules delivered to your inbox.
+        <p className="text-slate-600 text-xs sm:text-sm mb-6">
+          Receive seasonal agronomic updates, crop advisories, and water efficiency summaries.
         </p>
 
         {submitted ? (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-green-50 border border-green-100 rounded-xl px-6 py-4 text-green-700 font-medium text-sm"
+            className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-emerald-800 font-medium text-xs sm:text-sm flex items-center justify-center gap-2"
           >
-            ✓ You're subscribed! Watch for your first seasonal report.
+            <Check className="w-4 h-4 text-emerald-600" />
+            <span>You&apos;re subscribed! You will receive our next seasonal bulletin.</span>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex gap-2">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
             <input
               type="email"
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-4 py-3 border border-green-200 rounded-xl text-sm focus:outline-none focus:border-green-500 transition-colors bg-white"
+              className="flex-1 px-3.5 py-2.5 border border-slate-200 rounded-lg text-sm bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-colors placeholder:text-slate-400"
             />
             <button
               type="submit"
               disabled={loading}
-              className="bg-green-700 hover:bg-green-900 text-white px-5 py-3 rounded-xl font-semibold text-sm transition-all disabled:opacity-60 whitespace-nowrap"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-colors disabled:opacity-60 whitespace-nowrap shadow-soft"
             >
-              {loading ? "…" : "Subscribe"}
+              {loading ? "Subscribing…" : "Subscribe"}
             </button>
           </form>
         )}
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-green-100 bg-white py-8">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-green-700 rounded-lg flex items-center justify-center text-white text-xs font-bold">IW</div>
-            <span className="font-bold text-green-900 text-sm" style={{ fontFamily: "'Fraunces', serif" }}>IrrigateWise</span>
+      <footer className="border-t border-slate-200/80 bg-white py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-full overflow-hidden bg-white border border-emerald-600/30 flex items-center justify-center p-0.5 shadow-sm">
+              <img
+                src="/logo.png"
+                alt="IrrigateWise Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="font-semibold text-slate-900 text-sm">IrrigateWise</span>
           </div>
-          <p className="text-xs text-green-400 text-center">
-            Built for Erumaiyur Village, Tambaram · Tamil Nadu, India · Smart Irrigation Platform
+          <p className="text-xs text-slate-500 text-center">
+            Erumaiyur Village, Tambaram · Tamil Nadu, India · Smart Precision Irrigation Platform
           </p>
-          <div className="flex gap-4 text-xs text-green-500">
-            <Link href="/dashboard" className="hover:text-green-700 transition-colors">Dashboard</Link>
-            <Link href="/soil" className="hover:text-green-700 transition-colors">Soil Analysis</Link>
-            <Link href="/reports" className="hover:text-green-700 transition-colors">Reports</Link>
+          <div className="flex gap-4 text-xs font-medium text-slate-600">
+            <Link href="/dashboard" className="hover:text-emerald-700 transition-colors">Dashboard</Link>
+            <Link href="/soil" className="hover:text-emerald-700 transition-colors">Soil Analysis</Link>
+            <Link href="/reports" className="hover:text-emerald-700 transition-colors">Reports</Link>
           </div>
         </div>
       </footer>
