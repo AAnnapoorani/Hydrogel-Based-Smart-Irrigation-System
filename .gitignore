@@ -126,3 +126,10 @@ secrets/
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Datasets (Bulk raw images - see datasets/README.md)
+datasets/pests/classification/
+datasets/plant_diseases/PlantVillage/
